@@ -9,10 +9,11 @@ This app builds off the Orient's previous all-in-one website/CMS, the Bowdoin Or
 1. Clone this repo: `git clone https://github.com/BowdoinOrient/bongular.git`
 2. Install nodejs if you don't have it via [`brew`](http://brew.sh/) or [your platform's installer](http://nodejs.org/download/)
 3. Install the Compass gem: `gem install compass`
+4. Install Bower and Grunt: `npm install -g bower grunt`
 
 #### environment
 
-Bongular uses Grunt and Bower to manage dependencies and assets. You don't need to install them, their binaries are included in the repo.
+Bongular uses Grunt and Bower to manage dependencies and assets.
 
 To run bongular, execute `grunt serve` from the root of the repository.
 
