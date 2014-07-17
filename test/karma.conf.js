@@ -24,6 +24,8 @@ module.exports = function(config) {
             'bower_components/angular-cookies/angular-cookies.js',
             'bower_components/angular-route/angular-route.js',
             'bower_components/angular-touch/angular-touch.js',
+            'bower_components/lodash/dist/lodash.compat.js',
+            'bower_components/restangular/dist/restangular.js',
             'app/scripts/**/*.js',
             'test/mock/**/*.js',
             'test/spec/**/*.js'
@@ -31,9 +33,6 @@ module.exports = function(config) {
 
         // list of files / patterns to exclude
         exclude: [],
-
-        // web server port
-        port: 8080,
 
         // Start these browsers, currently available:
         // - Chrome
