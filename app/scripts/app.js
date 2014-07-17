@@ -8,10 +8,12 @@
 *
 * Main module of the application.
 */
-angular.module('bongularApp', [
+var bongular = window.bongular = angular.module('bongular', [
     'ngAnimate',
     'ngCookies',
     'ngRoute',
     'ngTouch',
-    'restangular'
+    'restangular',
+
+    'bongular.routes'
 ]);

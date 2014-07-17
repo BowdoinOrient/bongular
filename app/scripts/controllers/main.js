@@ -7,7 +7,7 @@
 * # MainCtrl
 * Controller of the bongularApp
 */
-angular.module('bongularApp').controller('MainCtrl', function ($scope) {
+angular.module('bongular').controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
         'Bowdoin',
         'the Orient',

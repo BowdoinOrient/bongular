@@ -1,13 +1,15 @@
-angular.config(function ($routeProvider) {
-    $routeProvider
+angular.module('bongular.routes', [])
+    .config(['$routeProvider', '$locationProvider',
+        function ($routeProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
     
-    .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-    })
-    
-    .otherwise({
-        redirectTo: '/'
-    });
-    
-});
+            $routeProvider
+            .when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+        }
+    ]);
