@@ -1,7 +1,7 @@
-dist
+/dist
 
-.tmp
+/.tmp
 
-.sass-cache
+/.sass-cache
 
-npm-debug.log
+*.log

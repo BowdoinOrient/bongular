@@ -1,4 +1,4 @@
-### bongular
+### bongular [![Build Status](https://travis-ci.org/BowdoinOrient/bongular.svg?branch=master)](https://travis-ci.org/BowdoinOrient/bongular)
 
 The Bowdoin Orient's frontend website, hosted at [bowdoinorient.com](bowdoinorient.com).
 
@@ -11,12 +11,11 @@ This app builds off the Orient's previous all-in-one website/CMS, the Bowdoin Or
 3. Install the Compass gem: `gem install compass`
 4. Install Bower and Grunt: `npm install -g bower grunt`
 
-#### environment
+#### developing
 
-Bongular uses Grunt and Bower to manage dependencies and assets.
-
-To run bongular, execute `grunt serve` from the root of the repository.
+`grunt serve`
 
 #### tests
 
-are on travis and I will add the badge here when I get around to it
+`grunt test`
+
