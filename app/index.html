@@ -2,7 +2,8 @@
 <html class="no-js">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <base href="/" />
+        <title>bongular</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -46,9 +47,12 @@
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
+
+        <script src="scripts/controllers/core/core_controller.js"></script>
+        <script src="scripts/controllers/articles/article_controller.js"></script>
+                <script src="scripts/app.js"></script>
         <script src="scripts/routes.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/constants.js"></script>
         <!-- endbuild -->
     </body>
 </html>

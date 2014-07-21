@@ -9,11 +9,12 @@
 * Main module of the application.
 */
 var bongular = window.bongular = angular.module('bongular', [
+    'ngRoute',
     'ngAnimate',
     'ngCookies',
-    'ngRoute',
     'ngTouch',
     'restangular',
 
-    'bongular.routes'
+    'Core',
+    'Articles'
 ]);

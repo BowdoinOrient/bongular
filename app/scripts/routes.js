@@ -1,4 +1,4 @@
-angular.module('bongular.routes', [])
+angular.module('bongular')
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
@@ -6,7 +6,7 @@ angular.module('bongular.routes', [])
             $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
+                controller: 'CoreCtrl'
             })
             .otherwise({
                 redirectTo: '/'
