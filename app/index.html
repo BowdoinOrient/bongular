@@ -2,7 +2,7 @@
 <html class="no-js">
     <head>
         <meta charset="utf-8">
-        <base href="/" />
+        <base href="/">
         <title>bongular</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
@@ -20,11 +20,14 @@
         <!-- endbuild -->
     </head>
     <body ng-app="bongular">
-        <!--[if lt IE 8]>
+        <!--[if lt IE 9]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <!-- Templates go here -->
+        
+        <div ng-view>
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+        </div>
 
         <!-- build:js(.) scripts/oldieshim.js -->
         <!--[if lt IE 9]>
@@ -47,12 +50,12 @@
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-        <script src="scripts/controllers/core/core_controller.js"></script>
-        <script src="scripts/controllers/articles/article_controller.js"></script>
-                <script src="scripts/app.js"></script>
+        <script src="scripts/app.js"></script>
         <script src="scripts/routes.js"></script>
         <script src="scripts/constants.js"></script>
+        <script src="scripts/controllers/core/core_controller.js"></script>
+        <script src="scripts/controllers/article/article_controller.js"></script>
+        <script src="scripts/controllers/home/home_controller.js"></script>
         <!-- endbuild -->
     </body>
 </html>

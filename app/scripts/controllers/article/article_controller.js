@@ -10,4 +10,5 @@
 angular.module('Article', [])
     .controller('ArticleCtrl', function ($scope) {
         $scope.something = "something else";
+        console.log("sup");
     });

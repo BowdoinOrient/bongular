@@ -15,6 +15,9 @@ var bongular = window.bongular = angular.module('bongular', [
     'ngTouch',
     'restangular',
 
+    'Routes',
+    'Constants',
+
     'Core',
     'Article',
     'Home'

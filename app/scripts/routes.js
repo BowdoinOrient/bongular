@@ -1,4 +1,4 @@
-angular.module('bongular')
+angular.module('Routes', [])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
@@ -8,12 +8,13 @@ angular.module('bongular')
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl'
             })
-            .when('/article', {
+            .when('/article/:articleid', {
                 templateUrl: 'views/article.html',
                 controller: 'ArticleCtrl'
             })
             .otherwise({
-                redirectTo: '/'
+                templateUrl: 'views/404.html',
+                controller: 'CoreCtrl'
             });
         }
     ]);
