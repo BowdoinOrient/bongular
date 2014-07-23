@@ -8,7 +8,7 @@
 * Controller to fetch and manage articles
 */
 angular.module('Article', [])
-    .controller('ArticleCtrl', function ($scope) {
+    .controller('ArticleCtrl', function ($scope, $routeParams) {
         $scope.something = "something else";
-        console.log("sup");
+        $scope.articleid = $routeParams['articleid'];
     });
