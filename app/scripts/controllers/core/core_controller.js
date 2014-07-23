@@ -7,7 +7,7 @@
 * # CoreCtrl
 * Main controller of the bongularApp
 */
-angular.module('Core', [])
+angular.module('Core.controller', [])
     .controller('CoreCtrl', function ($scope) {
         $scope.awesomeThings = [
             'Bowdoin',

@@ -3,7 +3,7 @@
 describe('Controller: ArticleCtrl', function () {
 
     // load the controller's module
-    beforeEach(module('Article'));
+    beforeEach(module('Article.controller'));
 
     var ArticleCtrl,
     scope;
