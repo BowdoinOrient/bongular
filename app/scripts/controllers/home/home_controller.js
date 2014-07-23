@@ -8,6 +8,8 @@
 * Controller for the site's homepage
 */
 angular.module('Home.controller', [])
-    .controller('HomeCtrl', function ($scope) {
-        $scope.something = "something else";
-    });
+    .controller('HomeCtrl', ['$scope',
+        function ($scope) {
+            $scope.something = "something else";
+        }
+    ]);
