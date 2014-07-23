@@ -8,13 +8,11 @@
 * Services to interact with the bongo article api
 */
 angular.module('Article.services', [])    
-    .factory('GetArticleService', ['Restangular', 'APIROOT',
+    .factory('GetArticleService', ['Restangular',
         function GetArticleService(Restangular, APIROOT) {
             return {
-                getArticle: function(articleid){
-                    return Restangular.one(APIROOT+'article').get({
-                        articleid: articleid
-                    });
+                getArticle: function(params){
+                    return Restangular.one('article/'+params.articleid).get();
                 }   
             };
         }

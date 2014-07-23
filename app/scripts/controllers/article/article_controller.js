@@ -12,10 +12,8 @@ angular.module('Article.controller', [])
         function (GetArticleService, $scope, $routeParams) {
             $scope.something = "something else";
 
-            $scope.articleid = $routeParams['articleid'];
-
             GetArticleService.getArticle({
-                articleid: $scope.articleid
+                articleid: $routeParams['articleid']
             }).then(
                 function(success) {
                     console.log("success");
