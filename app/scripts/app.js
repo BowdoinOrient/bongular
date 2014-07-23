@@ -16,5 +16,6 @@ var bongular = window.bongular = angular.module('bongular', [
     'restangular',
 
     'Core',
-    'Articles'
+    'Article',
+    'Home'
 ]);

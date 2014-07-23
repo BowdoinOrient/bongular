@@ -7,7 +7,7 @@
 * # ArticleCtrl
 * Controller to fetch and manage articles
 */
-angular.module('Articles', [])
+angular.module('Article', [])
     .controller('ArticleCtrl', function ($scope) {
         $scope.something = "something else";
     });

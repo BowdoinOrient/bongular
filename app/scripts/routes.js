@@ -5,8 +5,12 @@ angular.module('bongular')
     
             $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'CoreCtrl'
+                templateUrl: 'views/home.html',
+                controller: 'HomeCtrl'
+            })
+            .when('/article', {
+                templateUrl: 'views/article.html',
+                controller: 'ArticleCtrl'
             })
             .otherwise({
                 redirectTo: '/'
