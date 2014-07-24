@@ -9,7 +9,7 @@
 */
 angular.module('Article.services', [])    
     .factory('GetArticleService', ['Restangular',
-        function GetArticleService(Restangular, APIROOT) {
+        function GetArticleService(Restangular) {
             return {
                 getArticle: function(params){
                     return Restangular.one('post/'+params.articleid).get();
