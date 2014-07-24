@@ -13,7 +13,7 @@ angular.module('Article.services', [])
             return {
                 getArticle: function(params){
                     return Restangular.one('post/'+params.articleid).get();
-                }   
+                }
             };
         }
     ]);
