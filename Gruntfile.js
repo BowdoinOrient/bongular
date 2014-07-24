@@ -40,10 +40,6 @@ module.exports = function (grunt) {
                 livereload: '<%= connect.options.livereload %>'
             }
         },
-        jsTest: {
-            files: ['test/spec/{,*/}*.js'],
-            tasks: ['newer:jshint:test', 'karma']
-        },
         compass: {
             files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
             tasks: ['compass:server', 'autoprefixer']
@@ -367,11 +363,14 @@ module.exports = function (grunt) {
             ]
         },
 
-        // Test settings
-        karma: {
-            unit: {
-                configFile: 'test/karma.conf.js',
-                singleRun: true
+        protractor: {
+            options: {
+                configFile: "test/protractor.conf.js",
+                keepAlive: true,
+                noColor: false,
+                args: {
+
+                }
             }
         }
     });
@@ -392,17 +391,12 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve:' + target]);
-    });
-
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
         'autoprefixer',
         'connect:test',
-        'karma'
+        'protractor'
     ]);
 
     grunt.registerTask('build', [
@@ -427,5 +421,5 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-protractor-runner');
 };
