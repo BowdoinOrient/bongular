@@ -16,7 +16,7 @@ describe('Controller: ArticleCtrl', function () {
         });
     }));
 
-    it('should attach "something" to the scope', function () {
-        expect(scope.something).toBe("something else");
+    it('returns 404 for an article with no articleid parameter', function () {
+        expect(scope.article).not.toBeDefined;
     });
 });

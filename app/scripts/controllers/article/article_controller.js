@@ -8,15 +8,15 @@
 * Controller to fetch and manage articles
 */
 angular.module('Article.controller', [])
-    .controller('ArticleCtrl', ['GetArticleService', '$scope', '$routeParams',
-        function (GetArticleService, $scope, $routeParams) {
+    .controller('ArticleCtrl', ['GetArticleService', '$scope', '$routeParams', '$location',
+        function (GetArticleService, $scope, $routeParams, $location) {
             GetArticleService.getArticle({
                 articleid: $routeParams['articleid']
             }).then(
                 function(success) {
                     $scope.article = success;
                 }, function(error) {
-                    console.error("Content not found");
+                    $location.path("/404");
                 }
             );
         }
