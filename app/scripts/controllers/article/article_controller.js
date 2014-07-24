@@ -10,15 +10,13 @@
 angular.module('Article.controller', [])
     .controller('ArticleCtrl', ['GetArticleService', '$scope', '$routeParams',
         function (GetArticleService, $scope, $routeParams) {
-            $scope.something = "something else";
-
             GetArticleService.getArticle({
                 articleid: $routeParams['articleid']
             }).then(
                 function(success) {
-                    console.log("success");
+                    $scope.article = success;
                 }, function(error) {
-                    console.log("error");
+                    console.error("Content not found");
                 }
             );
         }

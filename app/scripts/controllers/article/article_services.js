@@ -12,7 +12,7 @@ angular.module('Article.services', [])
         function GetArticleService(Restangular, APIROOT) {
             return {
                 getArticle: function(params){
-                    return Restangular.one('article/'+params.articleid).get();
+                    return Restangular.one('post/'+params.articleid).get();
                 }   
             };
         }
