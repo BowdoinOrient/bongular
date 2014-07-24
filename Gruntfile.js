@@ -1,12 +1,6 @@
 // Generated on 2014-07-16 using generator-angular 0.9.5
 'use strict';
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
-
 module.exports = function (grunt) {
 
     // Load grunt tasks automatically
@@ -39,10 +33,6 @@ module.exports = function (grunt) {
             options: {
                 livereload: '<%= connect.options.livereload %>'
             }
-        },
-        jsTest: {
-            files: ['test/spec/{,*/}*.js'],
-            tasks: ['newer:jshint:test', 'karma']
         },
         compass: {
             files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -93,17 +83,6 @@ module.exports = function (grunt) {
                     ]
                 }
             },
-            test: {
-                options: {
-                    port: 9001,
-                    base: [
-                    '.tmp',
-                    'test',
-                    'rewrite|/bower_components|./bower_components',
-                    '<%= yeoman.app %>'
-                    ]
-                }
-            },
             dist: {
                 options: {
                     base: '<%= yeoman.dist %>'
@@ -123,12 +102,6 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/scripts/{,*/}*.js'
                 ]
             },
-            test: {
-                options: {
-                    jshintrc: 'test/.jshintrc'
-                },
-                src: ['test/spec/{,*/}*.js']
-            }
         },
 
         // Empties folders to start fresh
@@ -357,23 +330,12 @@ module.exports = function (grunt) {
             server: [
                 'compass:server'
             ],
-            test: [
-                'compass'
-            ],
             dist: [
                 'compass:dist',
                 'imagemin',
                 'svgmin'
             ]
         },
-
-        // Test settings
-        karma: {
-            unit: {
-                configFile: 'test/karma.conf.js',
-                singleRun: true
-            }
-        }
     });
 
 
@@ -391,19 +353,6 @@ module.exports = function (grunt) {
             'watch'
         ]);
     });
-
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve:' + target]);
-    });
-
-    grunt.registerTask('test', [
-        'clean:server',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:test',
-        'karma'
-    ]);
 
     grunt.registerTask('build', [
         'clean:dist',
@@ -423,9 +372,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'newer:jshint',
-        'test',
         'build'
     ]);
 
-    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-protractor-runner');
 };

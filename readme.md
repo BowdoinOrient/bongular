@@ -1,4 +1,4 @@
-### bongular [![Build Status](https://travis-ci.org/BowdoinOrient/bongular.svg?branch=master)](https://travis-ci.org/BowdoinOrient/bongular)
+### bongular
 
 The Bowdoin Orient's frontend website, hosted at [bowdoinorient.com](bowdoinorient.com).
 
@@ -14,8 +14,3 @@ This app builds off the Orient's previous all-in-one website/CMS, the Bowdoin Or
 #### developing
 
 `grunt serve`
-
-#### tests
-
-`grunt test`
-
