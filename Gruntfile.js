@@ -372,7 +372,6 @@ module.exports = function (grunt) {
 
                 }
             },
-            singlerun: {},
             auto: {
                 keepAlive: true,
                 options: {

@@ -14,7 +14,7 @@ exports.config = {
 
     specs: ['test/*_spec.js'],
 
-    baseUrl: 'http://127.0.0.1:9000/',
+    baseUrl: 'http://127.0.0.1:9001/',
 
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
