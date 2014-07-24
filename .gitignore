@@ -5,3 +5,6 @@
 /.sass-cache
 
 *.log
+
+# huge binaries in this folder
+node_modules/protractor/selenium/*

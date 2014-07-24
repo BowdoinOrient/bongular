@@ -3,10 +3,11 @@ node_js:
     - '0.10'
 before_install:
     - 'rm -rf node_modules'
-    - 'npm install -g grunt-cli protractor'
-    - 'webdriver-manager update --chrome'
 install:
     - 'npm install'
+    - 'npm install -g grunt-cli'
+    - 'webdriver-manager update --chrome'
+    - 'node_modules/protractor/bin/webdriver-manager update --chrome'
     - 'gem install compass'
 script:
     - 'grunt test'

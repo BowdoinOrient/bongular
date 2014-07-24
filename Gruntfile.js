@@ -365,11 +365,20 @@ module.exports = function (grunt) {
 
         protractor: {
             options: {
-                configFile: "test/protractor.conf.js",
+                configFile: "protractor.conf.js",
                 keepAlive: true,
                 noColor: false,
                 args: {
 
+                }
+            },
+            singlerun: {},
+            auto: {
+                keepAlive: true,
+                options: {
+                    args: {
+                        seleniumPort: 4444
+                    }
                 }
             }
         }
