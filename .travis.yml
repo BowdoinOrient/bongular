@@ -5,6 +5,9 @@ env:
     - DISPLAY=":99.0"
 before_install:
     - "sh -e /etc/init.d/xvfb start"
+    - ./node_modules/protractor/bin/install_selenium_standalone
+    - java -jar selenium/selenium-server-standalone-2.35.0.jar
+    - sleep 5
 install:
     - 'npm install'
     - 'npm install -g grunt-cli'

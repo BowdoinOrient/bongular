@@ -9,6 +9,8 @@ exports.config = {
         'browserName': 'firefox',
     },
 
+    seleniumPort: 4444,
+
     // Spec patterns are relative to the current working directly when
     // protractor is called.
 
