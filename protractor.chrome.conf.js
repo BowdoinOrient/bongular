@@ -6,7 +6,7 @@ exports.config = {
 
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
-        'browserName': 'chrome',
+        'browserName': 'firefox',
     },
 
     // Spec patterns are relative to the current working directly when
@@ -16,14 +16,7 @@ exports.config = {
 
     baseUrl: 'http://127.0.0.1:9001/',
 
-    // Options to be passed to Jasmine-node.
-    jasmineNodeOpts: {
-        showColors: true,
-        defaultTimeoutInterval: 30000
-    },
-
     onPrepare: function () {
         browser.driver.manage().window().maximize();
     }
-
 };

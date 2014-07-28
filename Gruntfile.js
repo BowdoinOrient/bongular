@@ -365,21 +365,23 @@ module.exports = function (grunt) {
 
         protractor: {
             options: {
-                configFile: "protractor.conf.js",
                 keepAlive: true,
+                singleRun: false,
                 noColor: false,
                 args: {
 
-                }
+                },
             },
-            auto: {
-                keepAlive: true,
+            chrome: {
                 options: {
-                    args: {
-                        seleniumPort: 4444
-                    }
-                }
-            }
+                    configFile: "protractor.chrome.conf.js",
+                },
+            },
+            firefox: {
+                options: {
+                    configFile: "protractor.firefox.conf.js",
+                },
+            },
         }
     });
 
@@ -405,6 +407,14 @@ module.exports = function (grunt) {
         'autoprefixer',
         'connect:test',
         'protractor'
+    ]);
+
+    grunt.registerTask('test', [
+        'clean:server',
+        'concurrent:test',
+        'autoprefixer',
+        'connect:test',
+        'protractor:firefox'  // chrome doesn't work on travis
     ]);
 
     grunt.registerTask('build', [
