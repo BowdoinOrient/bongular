@@ -409,7 +409,7 @@ module.exports = function (grunt) {
         'protractor'
     ]);
 
-    grunt.registerTask('test', [
+    grunt.registerTask('test_travis', [
         'clean:server',
         'concurrent:test',
         'autoprefixer',
