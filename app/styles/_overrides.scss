@@ -1,0 +1,28 @@
+/* Things that CSS should do/not do by default
+**************************************/
+
+%bsbb {
+    @include vendor-prefix("box-sizing", "border-box");
+}
+
+* {
+    @extend %bsbb;
+}
+
+%lists {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul, ol {
+    @extend %lists;
+}
+
+%noselect {
+    @include vendor-prefix("user-select", "none");
+}
+
+%hand {
+    cursor:pointer;
+}

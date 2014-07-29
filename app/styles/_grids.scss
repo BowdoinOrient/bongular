@@ -1,30 +1,4 @@
-@import 'fonts';
-@import 'mixins';
-
-@import 'errors/errors';
-
-@import 'pages/home';
-@import 'pages/article';
-
-@import 'components/header';
-
-
-/* Things that CSS should do by default
-**************************************/
-
-%bsbb {
-    @include vendor-prefix("box-sizing", "border-box");
-}
-
-* {
-    @extend %bsbb;
-}
-
-
-/* Grid structure
-***************************************/
-
-$pad: 20px;
+$pad: 0;
 
 %clearfix {
     &:after {
@@ -55,6 +29,9 @@ $pad: 20px;
 .col-1-3 {
     width: 33.33%;
 }
+.col-1-6 {
+    width: 16.66%;
+}
 .col-1-2 {
     width: 50%;
 }
@@ -72,6 +49,3 @@ $pad: 20px;
         padding-right: $pad;
     }
 }
-
-
-

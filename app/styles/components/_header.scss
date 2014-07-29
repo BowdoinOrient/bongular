@@ -1,0 +1,57 @@
+header {
+    height: 125px;
+    border-bottom: 2px solid $lightgray;
+
+    .logo-wrap {
+        max-width: 470px;
+        margin: 20px auto 0 auto;
+        
+        .logo {
+            width: 100%;
+            @extend %noselect;
+        }
+    }
+
+    nav {
+        display:block;
+        width:100%;
+
+        .sections {
+            height:60px;
+            display:inline-block;
+
+            span {
+                height:30px;
+                padding-top:5px;
+                margin-top:15px;
+                float: left;
+
+                font-family: "MyriadPro";
+                font-style: bold;
+                font-weight: 700;
+                font-size:16pt;
+
+                text-transform: uppercase;
+
+                @extend %noselect;
+                @extend %hand;
+
+                &.news {border-top: 4px solid $news}
+                &.features {border-top: 4px solid $features}
+                &.artsent {border-top: 4px solid $artsent}
+                &.sports {border-top: 4px solid $sports}
+                &.opinion {border-top: 4px solid $opinion}
+            }
+
+            span:not(:last-child) {
+                margin-right:15px;
+            }
+        }
+    }
+    nav:before {
+        content: "\00A0";
+        display:inline-block;
+        height:100%;
+        margin-right:15%;
+    }
+}
