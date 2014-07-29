@@ -1,6 +1,13 @@
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+    padding: 5px;
+    border: 3px dashed $warning;
+    color: $black;
+    font-family:"MyriadPro";
+    text-align:center;
+    font-size:14pt;
+
+    a {
+        color:$warning;
+        text-decoration:underline;
+    }
 }
