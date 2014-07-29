@@ -15,15 +15,21 @@
         <link rel="stylesheet" href="styles/core.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="bongular">
-        <!--[if lt IE 9]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <div ng-view>
-            <!-- angular templating -->
-            <!-- this is where content will be injected -->
+    <body class="grid" ng-app="bongular">
+        <div class="col-1-4"></div>
+        <div class="col-1-2">
+            <header ng-include="'views/components/header.html'"></header>
+
+            <!--[if lt IE 9]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+
+            <div ng-view>
+                <!-- angular templating -->
+                <!-- this is where content will be injected -->
+            </div>
         </div>
+        <div class="col-1-4"></div>
 
         <!-- build:js(.) scripts/oldieshim.js -->
         <!--[if lt IE 9]>
