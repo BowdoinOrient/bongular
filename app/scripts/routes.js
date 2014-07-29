@@ -5,15 +5,15 @@ angular.module('Routes', [])
     
             $routeProvider
             .when('/', {
-                templateUrl: 'views/home.html',
+                templateUrl: 'views/pages/home.html',
                 controller: 'HomeCtrl'
             })
             .when('/article/:articleid', {
-                templateUrl: 'views/article.html',
+                templateUrl: 'views//pagesarticle.html',
                 controller: 'ArticleCtrl'
             })
             .otherwise({
-                templateUrl: 'views/404.html',
+                templateUrl: 'views/errors/404.html',
                 controller: 'CoreCtrl'
             });
         }

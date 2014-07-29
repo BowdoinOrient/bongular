@@ -374,6 +374,4 @@ module.exports = function (grunt) {
         'newer:jshint',
         'build'
     ]);
-
-    grunt.loadNpmTasks('grunt-protractor-runner');
 };
