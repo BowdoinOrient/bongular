@@ -9,8 +9,12 @@ angular.module('Routes', [])
                 controller: 'HomeCtrl'
             })
             .when('/article/:articleid', {
-                templateUrl: 'views//pagesarticle.html',
+                templateUrl: 'views/pages/article.html',
                 controller: 'ArticleCtrl'
+            })
+            .when('/author/:authorid', {
+                templateUrl: 'views/pages/author.html',
+                controller: 'AuthorCtrl'
             })
             .otherwise({
                 templateUrl: 'views/errors/404.html',
