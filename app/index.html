@@ -16,9 +16,11 @@
         <!-- endbuild -->
     </head>
     <body class="grid" ng-app="bongular">
-        <div class="col-1-6"></div>
-        <div class="col-2-3">
-            <header ng-include="'views/components/header.html'"></header>
+        <div class="col-1-6 desktop-only"></div>
+        <div class="col-2-3 mobile-wide">
+            <div class="header-wrapper">
+                <header ng-include="'views/components/header.html'"></header>
+            </div>
 
             <!--[if lt IE 9]>
                 <p class="browsehappy">Your browser is out of date and no longer supported. Please <strong><a href="http://browsehappy.com/">upgrade your browser</a></strong> to use bowdoinorient.com.</p>
@@ -29,7 +31,7 @@
                 <!-- this is where content will be injected -->
             </div>
         </div>
-        <div class="col-1-6"></div>
+        <div class="col-1-6 desktop-only"></div>
 
         <!-- build:js(.) scripts/oldieshim.js -->
         <!--[if lt IE 9]>

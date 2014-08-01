@@ -1,9 +1,10 @@
 header {
     border-bottom: 2px solid $lightgray;
+    margin-top:-5px;
 
     .logo-wrap {
-        max-width: 470px;
-        margin: 20px auto 0 auto;
+        max-width: 475px;
+        margin: 10px auto 0 auto;
         
         .logo {
             width: 100%;
@@ -17,7 +18,8 @@ header {
 
         .sections {
             height:60px;
-            display:inline-block;
+            max-width:627px;
+            margin:0 auto;
 
             span {
                 height:30px;
@@ -47,10 +49,14 @@ header {
             }
         }
     }
-    nav:before {
-        content: "\00A0";
-        display:inline-block;
-        height:100%;
-        margin-right:15%;
-    }
+}
+
+// TODO: Find a better way to do this
+
+@media (max-width: 635px) {
+    @import 'header-mini';
+}
+
+.header-wrapper.mini {
+    @import 'header-mini';
 }

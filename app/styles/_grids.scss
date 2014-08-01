@@ -2,7 +2,7 @@ $pad: 0;
 
 %clearfix {
     &:after {
-        content: "\00A0";  // oh man browsers are weird
+        content: "\00A0";
         display: table;
         clear: both;
     }

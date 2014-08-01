@@ -1,0 +1,26 @@
+// Will trigger on tablet and lower
+@media (max-width: 1024px) {
+    .desktop-only {
+        display:none !important;
+        width:0; height:0;
+    }
+    .mobile-wide {
+        width:100%;
+    }
+}
+
+// Will trigger only on tablet
+@media (max-width: 1024px) and (min-width: 481px) {
+    .hide-tablet {
+        display:none !important;
+        width:0; height:0;
+    }
+}
+
+// Will trigger only on smartphone
+@media (max-width: 480px) {
+    .hide-mobile {
+        display:none !important;
+        width:0; height:0;     
+    }
+}
