@@ -16,6 +16,10 @@ angular.module('Routes', [])
                 templateUrl: 'views/pages/author.html',
                 controller: 'AuthorCtrl'
             })
+            .when('/about', {
+                templateUrl: 'views/pages/static/about.html',
+                controller: 'CoreCtrl'
+            })
             .otherwise({
                 templateUrl: 'views/errors/404.html',
                 controller: 'CoreCtrl'
