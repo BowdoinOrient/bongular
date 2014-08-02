@@ -1,57 +1,64 @@
-header {
-    border-bottom: 2px solid $lightgray;
+.header-wrapper {
     margin-top:-5px;
 
-    .logo-wrap {
-        max-width: 475px;
-        margin: 10px auto 0 auto;
-        
-        .logo {
-            width: 100%;
-            @extend %noselect;
-        }
-    }
+    header {
+        border-bottom: 2px solid $lightgray;
 
-    nav {
-        display:block;
-        width:100%;
-
-        .sections {
-            height:60px;
-            max-width:627px;
-            margin:0 auto;
-
-            span {
-                height:30px;
-                padding-top:5px;
-                margin-top:15px;
-                float: left;
-
-                font-family: "MyriadPro";
-                font-style: bold;
-                font-weight: 700;
-                font-size:16pt;
-
-                text-transform: uppercase;
-
+        .logo-wrap {
+            max-width: 475px;
+            margin: 10px auto 0 auto;
+            
+            .logo {
+                width: 100%;
                 @extend %noselect;
-                @extend %hand;
+            }
+        }
 
-                &.news {border-top: 4px solid $news}
-                &.features {border-top: 4px solid $features}
-                &.artsent {border-top: 4px solid $artsent}
-                &.sports {border-top: 4px solid $sports}
-                &.opinion {border-top: 4px solid $opinion}
+        nav {
+            display:block;
+            width:100%;
+
+            .sections {
+                height:60px;
+                max-width:627px;
+                margin:0 auto;
+
+                span {
+                    height:30px;
+                    padding-top:5px;
+                    margin-top:15px;
+                    float: left;
+
+                    font-family: "MyriadPro";
+                    font-style: bold;
+                    font-weight: 700;
+                    font-size:16pt;
+
+                    text-transform: uppercase;
+
+                    @extend %noselect;
+                    @extend %hand;
+
+                    &.news {border-top: 4px solid $news}
+                    &.features {border-top: 4px solid $features}
+                    &.artsent {border-top: 4px solid $artsent}
+                    &.sports {border-top: 4px solid $sports}
+                    &.opinion {border-top: 4px solid $opinion}
+
+                    &:not(:last-child) {
+                        margin-right:15px;
+                    }
+                }
+
+
             }
 
-            span:not(:last-child) {
-                margin-right:15px;
+            .mobile-burger {
+                display:none;
             }
         }
     }
 }
-
-// TODO: Find a better way to do this
 
 @media (max-width: 635px) {
     @import 'header-mini';

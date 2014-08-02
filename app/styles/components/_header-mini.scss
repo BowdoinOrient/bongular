@@ -1,3 +1,71 @@
-header {
-    display:none;
+.header-wrapper {
+    margin:0;
+
+    header {
+        width:100%;
+        position:fixed;
+
+        .logo-wrap {
+            height:50px !important;
+            margin:0;
+            display:inline-block;
+
+            .logo {
+                height:inherit;
+                padding:10px 0 10px 0;
+                width:auto;
+                margin-left:10px;
+            }
+        }
+
+        nav {
+            width:40px;
+            display:inline-block;
+            position:absolute;
+            top:7px;
+            right:10px;
+            height:40px;
+
+            .sections {
+                display:none;
+            }
+
+            .mobile-burger {
+                display:block;
+
+                width:40px;
+                height:40px;
+                border:2px solid $lightgray;
+                border-radius:3px;
+                cursor:pointer;
+
+                div {
+                    width:29px;
+                    height:2px;
+                    display:block;
+                    position:relative;
+
+                    &:not(:last-child) {
+                        margin:4px 3px;
+                    }
+
+                    &:last-child {
+                        margin:4px 3px 0 3px;
+                    }
+
+                    &:first-child {
+                        margin:5px 3px 0 3px;
+                    }
+                
+                    &.news {background-color: $news;}
+                    &.features {background-color: $features;}
+                    &.artsent {background-color: $artsent;}
+                    &.sports {background-color: $sports;}
+                    &.opinion {background-color: $opinion;}
+
+                    @include vendor-prefix("user-select", "none");
+                }
+            }
+        }
+    }
 }
