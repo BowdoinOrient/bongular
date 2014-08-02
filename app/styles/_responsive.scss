@@ -1,11 +1,17 @@
+.main-content {
+    width:100%;
+    max-width:1024px;
+    margin:auto;
+}
+
 // Will trigger on tablet and lower
 @media (max-width: 1024px) {
-    .desktop-only {
+    .hide-mobile {
         display:none !important;
         width:0; height:0;
     }
-    .mobile-wide {
-        width:100%;
+    .mobile-only {
+
     }
 }
 
@@ -15,15 +21,18 @@
         display:none !important;
         width:0; height:0;
     }
+    .tablet-only {
+
+    }
 }
 
 // Will trigger only on smartphone
 @media (max-width: 480px) {
-    .hide-mobile {
+    .hide-phone {
         display:none !important;
         width:0; height:0;     
     }
-    .mobile-only {
+    .phone-only {
         display:block !important;
     }
 }

@@ -1,6 +1,9 @@
 header {
     width:100%;
     position:fixed;
+    left:0;
+    background-color:0;
+    z-index:2147483647;  // lol http://softwareas.com/whats-the-maximum-z-index/
 
     .logo-wrap {
         height:50px !important;

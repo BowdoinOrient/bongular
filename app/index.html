@@ -16,8 +16,7 @@
         <!-- endbuild -->
     </head>
     <body class="grid" ng-app="bongular">
-        <div class="col-1-6 desktop-only"></div>
-        <div class="col-2-3 mobile-wide">
+        <div class="main-content">
             <div class="header-wrapper" scrollmin ng-class="{mini : minifyHeader}" >
                 <header ng-include="'views/components/header.html'"></header>
             </div>
@@ -33,7 +32,6 @@
                 <!-- this is where content will be injected -->
             </div>
         </div>
-        <div class="col-1-6 desktop-only"></div>
 
         <!-- build:js(.) scripts/oldieshim.js -->
         <!--[if lt IE 9]>
