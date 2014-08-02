@@ -23,5 +23,6 @@ var bongular = window.bongular = angular.module('bongular', [
     'Article.services',
     'Author.controller',
     'Author.services',
-    'Home.controller'
+    'Home.controller',
+    'Home.directives'
 ]);
