@@ -2,8 +2,12 @@ header {
     width:100%;
     position:fixed;
     left:0;
-    background-color:0;
+    background-color:white;
     z-index:2147483647;  // lol http://softwareas.com/whats-the-maximum-z-index/
+    @include vendor-prefix("transform-origin", "top 50%");
+    @include vendor-prefix("transform", "rotateX(0deg)");
+    @include vendor-prefix("transition", "transform 1s linear");
+
 
     .logo-wrap {
         height:50px !important;
@@ -19,11 +23,11 @@ header {
     }
 
     nav {
-        width:40px;
+        width:35px;
         display:inline-block;
         position:absolute;
         top:7px;
-        right:10px;
+        right:20px; 
         height:40px;
 
         .sections {
@@ -32,38 +36,40 @@ header {
 
         .mobile-burger {
             display:block;
-
-            width:40px;
-            height:40px;
-            border:2px solid $lightgray;
-            border-radius:3px;
+            width:35px;
             cursor:pointer;
 
-            div {
-                width:30px;
-                height:2px;
-                display:block;
+            .burger-lines {
+                width:35px;
+                height:3px;
+                display:inline-block;
                 position:relative;
-
-                &:not(:last-child) {
-                    margin:4px 3px;
-                }
-
-                &:last-child {
-                    margin:4px 3px 0 3px;
-                }
-
-                &:first-child {
-                    margin:5px 3px 0 3px;
-                }
-            
-                &.news {background-color: $news;}
-                &.features {background-color: $features;}
-                &.artsent {background-color: $artsent;}
-                &.sports {background-color: $sports;}
-                &.opinion {background-color: $opinion;}
+                background-color:$lightgray;
+                content: '\00A0';
+                top:18px;
 
                 @include vendor-prefix("user-select", "none");
+                @include vendor-prefix("tranform-origin", "center 50%");
+            }
+
+            .burger-lines:after {
+                @extend .burger-lines;
+                
+                top:-10px;
+
+                &.active {
+                    @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");    
+                } 
+            }
+
+            .burger-lines:before {
+                @extend .burger-lines;
+                
+                top:-8px;
+
+                &.active {
+                    @include vendor-prefix("transform", "rotate3d(0,0,1,-45deg)");    
+                } 
             }
         }
     }

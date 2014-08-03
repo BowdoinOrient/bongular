@@ -10,6 +10,9 @@
 angular.module('Article.controller', [])
     .controller('ArticleCtrl', ['GetArticleService', '$scope', '$routeParams', '$location',
         function (GetArticleService, $scope, $routeParams, $location) {
+
+
+            // Get the article content and deliver it to the scope
             GetArticleService.getArticle({
                 articleid: $routeParams['articleid']
             }).then(
