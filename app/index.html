@@ -16,7 +16,7 @@
         <!-- endbuild -->
     </head>
     <body ng-app="bongular">
-        <div class="main-content">
+        <div class="main-content" ng-controller="CoreCtrl">
             <div class="header-wrapper" scrollmin ng-class="{mini : minifyHeader}" >
                 <header ng-include="'views/components/header.html'"></header>
             </div>
@@ -59,7 +59,6 @@
         <script src="scripts/config.js"></script>
         <script src="scripts/controllers/core/core_controller.js"></script>
         <script src="scripts/controllers/core/core_directives.js"></script>
-        <script src="scripts/controllers/core/core_services.js"></script>
         <script src="scripts/controllers/article/article_controller.js"></script>
         <script src="scripts/controllers/article/article_services.js"></script>
         <script src="scripts/controllers/author/author_controller.js"></script>

@@ -47,29 +47,40 @@ header {
                 background-color:$lightgray;
                 content: '\00A0';
                 top:18px;
+                right:0;
+                opacity:1;
 
                 @include vendor-prefix("user-select", "none");
-                @include vendor-prefix("tranform-origin", "center 50%");
-            }
+                @include vendor-prefix("transition", "all .2s linear");
+            
+                &:after {
+                    @extend .burger-lines;
+                    @include vendor-prefix("transform-origin", "top right");
+                    top:-10px;
+                }
 
-            .burger-lines:after {
-                @extend .burger-lines;
-                
-                top:-10px;
-
-                &.active {
-                    @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");    
-                } 
-            }
-
-            .burger-lines:before {
-                @extend .burger-lines;
-                
-                top:-8px;
+                &:before {
+                    @extend .burger-lines;
+                    @include vendor-prefix("transform-origin", "top right");
+                    top:-8px;
+                }
 
                 &.active {
-                    @include vendor-prefix("transform", "rotate3d(0,0,1,-45deg)");    
-                } 
+                    background:transparent;
+
+                    &:after {
+                        @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");
+                        background-color:$lightgray;
+                        top:-6px;
+                        right:3px;
+                    }
+                    &:before {
+                        @include vendor-prefix("transform", "rotate3d(0,0,1,-45deg)");
+                        background-color:$lightgray;
+                        top:-12px;
+                        right:5px;
+                    }
+                }
             }
         }
     }

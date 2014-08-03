@@ -20,7 +20,6 @@ var bongular = window.bongular = angular.module('bongular', [
 
     'Core.controller',
     'Core.directives',
-    'Core.services',
     'Article.controller',
     'Article.services',
     'Author.controller',

@@ -8,7 +8,12 @@
 * Main controller of the bongularApp
 */
 angular.module('Core.controller', [])
-    .controller('CoreCtrl', ['$scope', '$rootScope', 
-        function ($scope, $rootScope) {
+    .controller('CoreCtrl', ['$scope', 
+        function ($scope) {
+            $scope.showMenu = 0;
+
+            $scope.toggleMenu = function(){
+                $scope.showMenu = $scope.showMenu * -1 + 1;
+            };
         }
     ]);
