@@ -4,10 +4,6 @@ header {
     left:0;
     background-color:white;
     z-index:2147483647;  // lol http://softwareas.com/whats-the-maximum-z-index/
-    @include vendor-prefix("transform-origin", "top 50%");
-    @include vendor-prefix("transform", "rotateX(0deg)");
-    @include vendor-prefix("transition", "transform 1s linear");
-
 
     .logo-wrap {
         height:50px !important;

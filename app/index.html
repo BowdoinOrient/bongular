@@ -17,8 +17,8 @@
     </head>
     <body ng-app="bongular">
         <div class="main-content" ng-controller="CoreCtrl">
-            <div class="header-wrapper" scrollmin ng-class="{mini : minifyHeader}" >
-                <header ng-include="'views/components/header.html'"></header>
+            <div class="header-wrapper" scrollmin ng-class="{minByScroll : minByScroll, minByWidth : minByWidth}" >
+                <header ng-include="'views/components/header.html'" ng-class="{'flip-in' : flipIn}" ></header>
             </div>
 
             <div style="height:4000px; display:block"></div>

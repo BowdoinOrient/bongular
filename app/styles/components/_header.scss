@@ -67,10 +67,24 @@ header {
     }
 }
 
-@media (max-width: 635px) {
+@media (max-width:635px) {
     @import 'header-mini';
 }
 
-.header-wrapper.mini {
+.header-wrapper.minByScroll, .header-wrapper.minByWidth {
     @import 'header-mini';
 }
+
+.header-wrapper.minByScroll:not(.minByWidth){
+    header {
+        @include vendor-prefix("transform-origin", "top right");
+        @include vendor-prefix("transform", "rotateX(90deg)");
+
+        &.flip-in{
+            @include vendor-prefix("transition", "transform .35s ease");
+            @include vendor-prefix("transform", "rotateX(0deg)");
+        }
+    }
+}
+
+
