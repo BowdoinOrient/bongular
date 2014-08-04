@@ -19,12 +19,14 @@ header {
             height:60px;
             max-width:627px;
             margin:0 auto;
+            position:relative;
 
             span {
-                height:30px;
+                height:45px;
                 padding-top:5px;
                 margin-top:15px;
-                float: left;
+                float:left;
+                display:inline-block;
 
                 font-family: "MyriadPro";
                 font-style: bold;
@@ -32,6 +34,9 @@ header {
                 font-size:16pt;
 
                 text-transform: uppercase;
+
+                background-color:transparent;
+                @include vendor-prefix("transition", "background-color .2s ease");
 
                 @extend %noselect;
                 @extend %hand;
@@ -44,6 +49,14 @@ header {
 
                 &:not(:last-child) {
                     margin-right:15px;
+                }
+
+                &:hover {
+                    &.news {background-color: rgba($news, 0.05)}
+                    &.features {background-color: rgba($features, 0.05)}
+                    &.artsent {background-color: rgba($artsent, 0.05)}
+                    &.sports {background-color: rgba($sports, 0.05)}
+                    &.opinion {background-color: rgba($opinion, 0.05)}
                 }
             }
         }
