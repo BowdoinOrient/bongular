@@ -19,22 +19,15 @@ angular.module('Core.directives', [])
         angular.element($window).bind("scroll", function() {
             if (this.pageYOffset >= 145) {
                 scope.minByScroll = true;
-                scope.flipIn = true;
+                scope.fallIn = true;
             } else {
                 scope.minByScroll = false;
-                scope.flipIn = false;
+                scope.fallIn = false;
             }
             scope.$apply();
         });
 
 
     };
-})
-.directive('basement-menu', function(){
-    return {
-        restrict: 'E',
-        templateUrl: 'views/components/basement-menu.html',
-        replace: true,
-        controller: 'CoreCtrl'
-    };
 });
+

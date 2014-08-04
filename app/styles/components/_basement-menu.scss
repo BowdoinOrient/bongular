@@ -1,0 +1,70 @@
+.basement-menu {
+    position:fixed;
+    height:100vh;
+    width:150px;
+    right:0;
+    top:55px;
+    display:block;
+    background-color: rgba($darkgray, 0.9);
+    border-left:1px solid $lightgray;
+    @include vendor-prefix("box-shadow", "inset 10px 0px 20px -5px rgba(50, 50, 50, .85)");
+
+
+    .sections {
+        width:100%;
+
+        span {
+            width:100%;
+            height:80px;
+            display:block;
+
+            font-family: "MyriadPro";
+            font-style: bold;
+            font-weight: 700;
+            font-size:12pt;
+            color:white;
+
+            padding:10px;
+
+            text-transform: uppercase;
+
+            border-bottom: 1px solid $lightgray;
+
+            @extend %noselect;
+            @extend %hand;
+
+            &.news {
+                background-color: rgba($news, 0.4);
+                &:hover {
+                    background-color: rgba($news, 0.7);
+                }
+            }
+            &.features {
+                background-color: rgba($features, 0.2);
+                &:hover {
+                    background-color: rgba($features, 0.4);
+                }
+            }
+            &.artsent {
+                background-color: rgba($artsent, 0.2);
+                &:hover {
+                    background-color: rgba($artsent, 0.4);
+                }
+            }
+            &.sports {
+                background-color: rgba($sports, 0.2);
+                &:hover {
+                    background-color: rgba($sports, 0.4);
+                }
+            }
+            &.opinion {
+                background-color: rgba($opinion, 0.2);
+                &:hover {
+                    background-color: rgba($opinion, 0.4);
+                }
+            }
+
+
+        }
+    }
+}

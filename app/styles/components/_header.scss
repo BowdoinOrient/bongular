@@ -3,7 +3,8 @@ header {
 
     .logo-wrap {
         max-width: 475px;
-        margin: 10px auto 0 auto;
+        margin: 0 auto;
+        padding-top:10px;
         
         .logo {
             width: 100%;
@@ -17,7 +18,7 @@ header {
 
         .sections {
             height:60px;
-            max-width:627px;
+            max-width:630px;
             margin:0 auto;
             position:relative;
 
@@ -77,12 +78,11 @@ header {
 
 .header-wrapper.minByScroll:not(.minByWidth){
     header {
-        @include vendor-prefix("transform-origin", "top right");
-        @include vendor-prefix("transform", "rotateX(90deg)");
+        @include vendor-prefix("transform", "translateY(-55px)");
 
-        &.flip-in{
+        &.fall-in{
             @include vendor-prefix("transition", "transform .35s ease");
-            @include vendor-prefix("transform", "rotateX(0deg)");
+            @include vendor-prefix("transform", "translateY(0px)");
         }
     }
 }
