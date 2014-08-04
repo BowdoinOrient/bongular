@@ -29,4 +29,12 @@ angular.module('Core.directives', [])
 
 
     };
+})
+.directive('basement-menu', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'views/components/basement-menu.html',
+        replace: true,
+        controller: 'CoreCtrl'
+    };
 });
