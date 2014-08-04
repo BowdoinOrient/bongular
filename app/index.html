@@ -16,20 +16,18 @@
         <!-- endbuild -->
     </head>
     <body ng-app="bongular">
-        <div class="main-content" ng-controller="CoreCtrl">
+        <div ng-controller="CoreCtrl">
             <div class="header-wrapper" scrollmin ng-class="{minByScroll : minByScroll, minByWidth : minByWidth}">
                 <header ng-include="'views/components/header.html'"ng-class="{'fall-in' : fallIn}"></header>
             </div>
             
             <div class="basement-menu" ng-include="'views/components/basement-menu.html'" ng-show="showMenu"></div>
 
-            <div style="height:4000px; display:block"></div>
-
             <!--[if lte IE 9]>
                 <p class="browsehappy">Your browser is out of date and no longer supported. Please <strong><a href="http://browsehappy.com/">upgrade your browser</a></strong> to use bowdoinorient.com.</p>
             <![endif]-->
 
-            <div ng-view>
+            <div ng-view class="main-content">
                 <!-- angular templating -->
                 <!-- this is where content will be injected -->
             </div>
