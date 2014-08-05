@@ -18,7 +18,7 @@
     <body ng-app="bongular">
         <div ng-controller="CoreCtrl">
             <div class="header-wrapper" scrollmin ng-class="{minByScroll : minByScroll, minByWidth : minByWidth}">
-                <header ng-include="'views/components/header.html'"ng-class="{'fall-in' : fallIn}"></header>
+                <header ng-include="'views/components/header.html'" ng-class="{'fall-in' : fallIn}"></header>
             </div>
             
             <div class="basement-menu" ng-include="'views/components/basement-menu.html'" ng-class="{active: showMenu && (minByScroll || minByWidth)}"></div>

@@ -20,12 +20,14 @@ header {
     }
 
     nav {
-        width:35px;
+        width:45px;
         display:inline-block;
         position:absolute;
-        top:15px;
+        top:13px;
         right:20px; 
         height:40px;
+        cursor:pointer;
+        padding:5px;
 
         .sections {
             display:none;
@@ -34,49 +36,60 @@ header {
         .mobile-burger {
             display:block;
             width:35px;
-            cursor:pointer;
+            height:18px;
 
             .burger-lines {
                 width:35px;
                 height:3px;
-                display:inline-block;
+                display:block;
                 position:relative;
                 background-color:$lightgray;
-                content: '\00A0';
+                top:8px;
                 right:0;
                 opacity:1;
 
                 @include vendor-prefix("user-select", "none");
                 @include vendor-prefix("transition", "all .25s ease");
-            
-                &:after {
-                    @extend .burger-lines;
-                    @include vendor-prefix("transform-origin", "top right");
-                    top:-20px;
-                }
-
-                &:before {
-                    @extend .burger-lines;
-                    @include vendor-prefix("transform-origin", "top right");
-                    top:-20px;
-                }
 
                 &.active {
                     background:transparent;
 
-                    &:after {
-                        @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");
-                        background-color:$lightgray;
-                        top:-6px;
-                        right:3px;
-                    }
-                    &:before {
+                    &:before{
                         @include vendor-prefix("transform", "rotate3d(0,0,1,-45deg)");
                         background-color:$lightgray;
-                        top:-12px;
-                        right:5px;
+                        top:0px;
+                    }
+
+                    &:after{
+                        @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");
+                        background-color:$lightgray;
+                        top:-3px;   
                     }
                 }
+            }
+
+            .burger-lines:before{
+                content: '\00A0';
+                width:35px;
+                height:3px;
+                display:block;
+                position:relative;
+                background-color:$lightgray;
+                top:-9px;
+                @include vendor-prefix("user-select", "none");
+                @include vendor-prefix("transition", "all .25s ease");
+            }
+
+            .burger-lines:after {
+                content: '\00A0';
+                width:35px;
+                height:3px;
+                display:block;
+                position:relative;
+                background-color:$lightgray;
+                top:6px;
+                @include vendor-prefix("user-select", "none");
+                @include vendor-prefix("transition", "all .25s ease");
             }
         }
     }
