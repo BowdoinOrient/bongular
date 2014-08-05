@@ -19,7 +19,7 @@ header {
 
         .sections {
             height:60px;
-            max-width:635px;
+            max-width:640px;
             margin:0 auto;
             position:relative;
 
@@ -69,7 +69,7 @@ header {
     }
 }
 
-@media (max-width:635px) {
+@media (max-width:640px) {
     @import 'header-mini';
 }
 
