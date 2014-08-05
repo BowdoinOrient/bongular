@@ -23,7 +23,7 @@ header {
         width:35px;
         display:inline-block;
         position:absolute;
-        top:10px;
+        top:15px;
         right:20px; 
         height:40px;
 
@@ -43,7 +43,6 @@ header {
                 position:relative;
                 background-color:$lightgray;
                 content: '\00A0';
-                top:18px;
                 right:0;
                 opacity:1;
 
@@ -53,13 +52,13 @@ header {
                 &:after {
                     @extend .burger-lines;
                     @include vendor-prefix("transform-origin", "top right");
-                    top:-10px;
+                    top:-20px;
                 }
 
                 &:before {
                     @extend .burger-lines;
                     @include vendor-prefix("transform-origin", "top right");
-                    top:-8px;
+                    top:-20px;
                 }
 
                 &.active {
