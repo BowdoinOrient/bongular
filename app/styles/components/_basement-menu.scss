@@ -3,12 +3,14 @@
     display:block;
     height:100vh;
     width:150px;
-    right:0;
+    right:-150px;
     top:55px;
     display:block;
     background-color: rgba($darkgray, 0.9);
     border-left:1px solid $lightgray;
     @include vendor-prefix("box-shadow", "inset 10px 0px 20px -5px rgba(50, 50, 50, .85)");
+    @include vendor-prefix("transition", "transform .3s ease");
+    @include vendor-prefix("backface-visibility", "hidden");   // required to hack around weird webkit bug
 
 
     .sections {
@@ -64,8 +66,17 @@
                     background-color: rgba($opinion, 0.4);
                 }
             }
-
-
         }
+    }
+
+    &.active {
+        @include vendor-prefix("transform", "translateX(-150px)");
+    }
+}
+
+.main-content {
+    @include vendor-prefix("transition", "transform .3s ease");
+    &.shift-menu {
+        @include vendor-prefix("transform", "translateX(-150px)");
     }
 }
