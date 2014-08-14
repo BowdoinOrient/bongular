@@ -21,8 +21,10 @@ angular.module('Core.directives', [])
                 scope.minByScroll = true;
                 scope.fallIn = true;
             } else {
-                scope.minByScroll = false;
                 scope.fallIn = false;
+                window.setTimeout(function(){
+                    scope.minByScroll = false;
+                }, 40);
             }
             scope.$apply();
         });

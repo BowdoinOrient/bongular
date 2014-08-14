@@ -1,0 +1,36 @@
+// Deck, like 'dek', but also like 'deck of cards', cuz, like...
+// Ah, forget it.
+
+.deck {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: block;
+
+    .d2x2 {
+        width: 50%;
+        height: 66.6%;
+        transform: translate3d(0,0,0);
+    }
+
+    .d1x1 {
+        width: 25%;
+        height: 33.3%;
+        transform: translate3d(0,0,0);
+    }
+
+    .d2x1 {
+        width:50%;
+        height:33.3%;
+    }
+
+    .news{background-color:$news;}
+    .features{background-color:$features;}
+    .artsent{background-color:$artsent;}
+    .sports{background-color:$sports;}
+    .opinion{background-color:$opinion;}
+
+    div {
+        display: block;
+    }
+}
