@@ -10,6 +10,5 @@
 angular.module('Home.controller', [])
     .controller('HomeCtrl', ['$scope',
         function ($scope) {
-
         }
     ]);

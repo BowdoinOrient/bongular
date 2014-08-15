@@ -8,8 +8,10 @@
 * Main controller of the bongularApp
 */
 angular.module('Core.controller', [])
-    .controller('CoreCtrl', ['$scope', 
-        function ($scope) {
+    .controller('CoreCtrl', ['LocationService', '$scope', 
+        function (LocationService, $scope) {
+            $scope.goto = LocationService.goto;
+            
             $scope.showMenu = 0;
 
             $scope.toggleMenu = function(){

@@ -12,24 +12,26 @@ angular.module('Core.directives', [])
         checkWidth();
 
         angular.element($window).bind("resize", function(){
-            checkWidth();
-            scope.$apply();
+            window.requestAnimationFrame(function(){
+                checkWidth();
+                scope.$apply();
+            });
         });
 
         angular.element($window).bind("scroll", function() {
-            if (this.pageYOffset >= 145) {
-                scope.minByScroll = true;
-                scope.fallIn = true;
-            } else {
-                scope.fallIn = false;
-                window.setTimeout(function(){
-                    scope.minByScroll = false;
-                }, 40);
-            }
-            scope.$apply();
+            window.requestAnimationFrame(function(){
+                if (this.pageYOffset >= 145) {
+                    scope.minByScroll = true;
+                    scope.fallIn = true;
+                } else {
+                    scope.fallIn = false;
+                    window.setTimeout(function(){
+                        scope.minByScroll = false;
+                    }, 40);
+                }
+                scope.$apply();
+            });
         });
-
-
     };
 });
 
