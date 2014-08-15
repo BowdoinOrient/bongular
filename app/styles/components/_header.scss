@@ -75,6 +75,13 @@ header {
 
 .header-wrapper.minByScroll, .header-wrapper.minByWidth {
     @import 'header-mini';
+
+    &:before {
+        position:static;
+        display:block;
+        height:56px;
+        content:"\00A0";
+    }
 }
 
 .header-wrapper.minByScroll:not(.minByWidth){
@@ -86,7 +93,7 @@ header {
             @include vendor-prefix("transform", "translateY(0px)");
         }
     }
-    
+
     &:before {
         position:static;
         display:block;
