@@ -1,5 +1,10 @@
-// Deck, like 'dek', but also like 'deck of cards', cuz, like...
-// Ah, forget it.
+/*  The Deck has:
+    - 4 columns
+    - 3 rows
+    - 600 vertical pixels
+    - 6 containers (1x2x2, 5x2x1)
+*/
+
 
 .deck {
     position: relative;
@@ -7,30 +12,141 @@
     height: 600px;
     display: block;
 
-    .d2x2 {
-        width: 50%;
-        height: 66.6%;
-        transform: translate3d(0,0,0);
+    .story {
+        position: absolute;
+
+        &.lead {
+            background-color:$news;
+            
+            left:0;
+            top:0;
+
+            width:50%;
+            height:66.6%;
+        }
+
+        &.second {
+            width:50%;
+            height:33.3%;
+
+            &#n1 {
+                background-color:$features;
+                left:50%;
+                top:0;
+            }
+            &#n2 {
+                background-color:$artsent;
+                left:50%;
+                top:33.3%;
+            }
+        }
+
+        &.thumb {
+            width:25%;
+            height:33.3%;
+            min-width:200px;
+
+            &#n1 {
+                background-color:$opinion;
+                left:0;
+                top:66.6%;
+            }
+            &#n2 {
+                background-color:$opinion;
+                right:0;
+                top:66.6%;
+            }
+        }
+
+        &.anchor {
+            background-color:$sports;
+
+            top:66.6%;
+            left:25%;
+
+            width:50%;
+            height:33.3%;
+        }
     }
+}
 
-    .d1x1 {
-        width: 25%;
-        height: 33.3%;
-        transform: translate3d(0,0,0);
+@media (max-width:800px){
+    .deck {
+        .story {
+            &.thumb {
+                width:25%;
+                height:33.3%;
+                min-width:200px;
+
+                &#n1 {
+                    top:66.6%;
+                    left:0;
+                }
+                &#n2 {
+                    top:66.6%;
+                    right:0;
+                }
+            }
+
+            &.anchor {
+                top:66.6%;
+                left:200px;
+
+                width:50%;
+                height:33.3%;
+            }
+        }
     }
+}
 
-    .d2x1 {
-        width:50%;
-        height:33.3%;
-    }
+@media (max-width:640px){
+    .deck {
+        .story {
+            &.lead {
+                left:0;
+                top:0;
 
-    .news{background-color:$news;}
-    .features{background-color:$features;}
-    .artsent{background-color:$artsent;}
-    .sports{background-color:$sports;}
-    .opinion{background-color:$opinion;}
+                width:50%;
+                height:66.6%;
+            }
 
-    div {
-        display: block;
+            &.second {
+                width:50%;
+                height:33.3%;
+
+                &#n1 {
+                    left:50%;
+                    top:0;
+                }
+                &#n2 {
+                    left:50%;
+                    top:33.3%;
+                }
+            }
+
+            &.thumb {
+                width:25%;
+                height:33.3%;
+                min-width:200px;
+                position:relative;
+
+                &#n1 {
+                    top:66.6%;
+                    float:right;
+                }
+                &#n2 {
+                    top:66.6%;
+                    float:left;
+                }
+            }
+
+            &.anchor {
+                top:66.6%;
+                left:25%;
+
+                width:50%;
+                height:33.3%;
+            }
+        }
     }
 }
