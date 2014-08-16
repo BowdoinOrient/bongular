@@ -4,7 +4,11 @@
 </div>
 
 <div class="homepage-content">
-    <div class="left-col"></div>
+    <div class="left-col">
+        <section ng-repeat="section in sections">
+            <h2>{{section}}</h2>
+        </section>
+    </div>
     <div class="right-col">
         <twitter-widget></twitter-widget>
     </div>

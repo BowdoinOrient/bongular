@@ -12,5 +12,6 @@ angular.module('Home.controller', [
     ])
     .controller('HomeCtrl', ['$scope',
         function ($scope) {
+            $scope.sections = ["News", "Features", "Arts and Entertainment", "Opinion", "Sports"];
         }
     ]);

@@ -6,5 +6,74 @@
 
     margin:25px 0;
 
-    background-color:#eff0f0;
+    background-color:$lightergray;
 }
+
+.homepage-content {
+    position:relative;
+
+    .left-col {
+        width:70%;
+        padding:0 10px;
+        left:0;
+        top:0;
+
+        section {
+            h2 {
+                margin:0;
+                padding-bottom:5px;
+                margin-bottom:15px;
+                border-bottom:2px solid $lightergray;
+                font-family:"MinionPro";
+                font-size:14pt;
+                text-transform:uppercase;
+
+                &:first-letter {
+                    font-size:1.3em;
+                }
+            }
+        }
+    }
+
+    .right-col {
+        width:30%;
+        padding:0 10px;
+        right:0;
+        top:0;
+
+        iframe {
+            width:100%;
+        }
+    }
+
+    & div {
+        display:inline-block;
+        position:absolute;
+    }
+}
+
+@media (max-width:767px){
+    .homepage-content {
+        .left-col {
+            width:100%;
+        }
+
+        .right-col {
+            display:none;
+            width:0%;
+        }
+    } 
+}
+
+@media (min-width:1024px){
+    .homepage-content {
+        .left-col {
+            padding:0 10px 0 0;
+        }
+
+        .right-col {
+            padding: 0 0 0 10px;
+        }
+    } 
+}
+
