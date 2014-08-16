@@ -7,7 +7,9 @@
 * # HomeCtrl
 * Controller for the site's homepage
 */
-angular.module('Home.controller', [])
+angular.module('Home.controller', [
+        'Home.directives'
+    ])
     .controller('HomeCtrl', ['$scope',
         function ($scope) {
         }

@@ -3,7 +3,7 @@ header {
     position:fixed;
     left:0;
     background-color:white;
-    z-index:2147483647;  // lol http://softwareas.com/whats-the-maximum-z-index/
+    z-index:$maxz;
 
     .logo-wrap {
         height:50px !important;
