@@ -8,11 +8,11 @@
 * Services to interact with the bongo author api
 */
 angular.module('Author.services', [])    
-    .factory('GetAuthorService', ['Restangular',
-        function GetAuthorService(Restangular) {
+    .factory('AuthorService', ['Restangular',
+        function AuthorService(Restangular) {
             return {
                 getAuthor: function(params){
-                    return Restangular.one('creator/'+params.authorid).get();
+                    return Restangular.one('creator', params.authorid).get();
                 }
             };
         }

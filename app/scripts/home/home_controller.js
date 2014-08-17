@@ -8,10 +8,11 @@
 * Controller for the site's homepage
 */
 angular.module('Home.controller', [
-        'Home.directives'
+        'Home.directives',
+        'Article.services',
     ])
-    .controller('HomeCtrl', ['$scope',
-        function ($scope) {
+    .controller('HomeCtrl', ['IssueService', '$scope',
+        function (IssueService, $scope) {
             $scope.sections = ["News", "Features", "Arts and Entertainment", "Opinion", "Sports"];
         }
     ]);

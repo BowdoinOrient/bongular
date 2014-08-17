@@ -8,9 +8,9 @@
 * Controller to fetch and manage authors
 */
 angular.module('Author.controller', [])
-    .controller('AuthorCtrl', ['GetAuthorService', '$scope', '$routeParams', '$location',
-        function (GetAuthorService, $scope, $routeParams, $location) {
-            GetAuthorService.getAuthor({
+    .controller('AuthorCtrl', ['AuthorService', '$scope', '$routeParams', '$location',
+        function (AuthorService, $scope, $routeParams, $location) {
+            AuthorService.getAuthor({
                 authorid: $routeParams['authorid']
             }).then(
                 function(success) {
