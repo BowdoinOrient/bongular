@@ -11,11 +11,15 @@ angular.module('Issue.services', [])
     .factory('IssueService', ['Restangular',
         function IssueService(Restangular) {
             return {
-                getIssue: function(params){
-                    return Restangular.one('post', params.articleid).get();
+                getIssue: function(params, callback){
+                    Restangular.one('issue', params.issueid).get().then(function(data){
+                        callback(data);
+                    });
                 },
-                getLatestIssue: function(params){
-                    
+                getLatestIssue: function(callback){
+                    Restangular.one('issue/latest').get().then(function(data){
+                        callback(data.plain().body[0]);
+                    });
                 }
             };
         }

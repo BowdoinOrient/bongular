@@ -11,8 +11,10 @@ angular.module('Author.services', [])
     .factory('AuthorService', ['Restangular',
         function AuthorService(Restangular) {
             return {
-                getAuthor: function(params){
-                    return Restangular.one('creator', params.authorid).get();
+                getAuthor: function(params, callback){
+                    Restangular.one('creator', params.authorid).get().then(function(data){
+                        callback(data);
+                    });
                 }
             };
         }

@@ -11,8 +11,10 @@ angular.module('Article.services', [])
     .factory('ArticleService', ['Restangular',
         function ArticleService(Restangular) {
             return {
-                getArticle: function(params){
-                    return Restangular.one('post', params.articleid).get();
+                getArticle: function(params, callback){
+                    Restangular.one('post', params.articleid).get().then(function(data){
+                        callback(data);
+                    });
                 }
             };
         }

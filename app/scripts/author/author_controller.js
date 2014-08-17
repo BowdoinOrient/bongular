@@ -10,14 +10,8 @@
 angular.module('Author.controller', [])
     .controller('AuthorCtrl', ['AuthorService', '$scope', '$routeParams', '$location',
         function (AuthorService, $scope, $routeParams, $location) {
-            AuthorService.getAuthor({
-                authorid: $routeParams['authorid']
-            }).then(
-                function(success) {
-                    $scope.author = success;
-                }, function(error) {
-                    $scope.author = "Error";
-                }
-            );
+            AuthorService.getAuthor({authorid: $routeParams['authorid']}, function(data){
+                $scope.author = data;
+            });
         }
     ]);

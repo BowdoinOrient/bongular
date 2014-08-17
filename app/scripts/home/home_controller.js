@@ -13,6 +13,10 @@ angular.module('Home.controller', [
     ])
     .controller('HomeCtrl', ['IssueService', '$scope',
         function (IssueService, $scope) {
+            IssueService.getLatestIssue(function(data){
+                $scope.thisIssue = data;
+            });
+
             $scope.sections = ["News", "Features", "Arts and Entertainment", "Opinion", "Sports"];
         }
     ]);
