@@ -41,8 +41,10 @@
         right:0;
         top:0;
 
-        iframe {
+        div {
             width:100%;
+            display:block;
+            position:relative;
         }
     }
 

@@ -16,9 +16,14 @@ angular.module('Home.directives', [
             restrict: 'AE',
             replace: true,
             templateUrl: 'views/components/widgets/scribd-widget.html',
-            link: function(){
-                ScribdService.lastCover(function(result){
-                    console.log(result);
+            link: function(scope, element, attrs){
+                attrs.$observe('issue', function(){
+                    var issueID = parseInt(attrs.issue, 10);
+                    if(issueID > 0) {
+                        ScribdService.lastCover(issueID, function(result){
+                            scope.scribdImage = result;
+                        });
+                    }
                 });
             }
         };

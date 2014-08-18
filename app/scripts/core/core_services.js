@@ -19,7 +19,6 @@ angular.module('Core.services', [])
                         window.setTimeout(function(){
                             window.dispatchEvent(new Event('scroll'));
                         }, 50);
-                        
                     }
                 },
             }
@@ -27,13 +26,16 @@ angular.module('Core.services', [])
     ]).factory('ScribdService', ['Restangular',
         function ScribdService(Restangular) {
             return {
-                lastCover: function(callback){
+                lastCover: function(scribdId, callback){
+                    var scribdPublicApiKey = "34m5pzwzt3fqi0fod70cc";
+                    var scribdDocId = scribdId;
+
                     var restng = Restangular.withConfig(function(RestangularConfigurer) {
-                        RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/posts");
+                        RestangularConfigurer.setBaseUrl("http://api.scribd.com/");
                     });
 
-                    restng.one('list.json').getList().then(function(list){
-                        callback(list);
+                    restng.one('api').get({"method":"thumbnail.get", "api_key":scribdPublicApiKey, "doc_id": scribdDocId}).then(function(thumb){
+                        callback(thumb);
                     });
                 },
             }
