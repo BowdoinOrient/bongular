@@ -35,7 +35,7 @@ angular.module('Home.directives', [
             templateUrl: 'views/components/widgets/disqus-widget.html',
             link: function(scope){
                 DisqusService.recentComments(function(result){
-                    scope.disqusComments = result;
+                    scope.disqusComments = result.slice(0,1);
                 });
             }
         };

@@ -12,9 +12,4 @@
 @import 'components/basement-menu';
 @import 'components/deck';
 @import 'components/errors';
-
-.debug-huge {
-    display:block;
-    height:1500px;
-    width:1px;
-}
+@import 'components/disqus';
