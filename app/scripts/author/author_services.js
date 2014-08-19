@@ -7,7 +7,7 @@
 * # AuthorServices
 * Services to interact with the bongo author api
 */
-angular.module('Author.services', [])    
+angular.module('Author.services', [])
     .factory('AuthorService', ['Restangular',
         function AuthorService(Restangular) {
             return {

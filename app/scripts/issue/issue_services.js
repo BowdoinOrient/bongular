@@ -7,7 +7,7 @@
 * # IssueServices
 * Services to interact with the bongo issue api
 */
-angular.module('Issue.services', [])    
+angular.module('Issue.services', [])
     .factory('IssueService', ['Restangular',
         function IssueService(Restangular) {
             return {

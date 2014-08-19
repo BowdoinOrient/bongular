@@ -7,12 +7,12 @@
 * # CoreServices
 * Services to be used generally cross-app
 */
-angular.module('Core.services', [])    
-    .factory('LocationService', ['$location', '$anchorScroll',  
+angular.module('Core.services', [])
+    .factory('LocationService', ['$location', '$anchorScroll',
         function LocationService($location, $anchorScroll) {
             return {
                 goto: function(url){
-                    if ($location.url() != url){
+                    if ($location.url() !== url){
                         $location.url(url);
                     } else {
                         $anchorScroll();
@@ -21,7 +21,7 @@ angular.module('Core.services', [])
                         }, 50);
                     }
                 },
-            }
+            };
         }
     ]).factory('ScribdService', ['Restangular',
         function ScribdService(Restangular) {
@@ -38,7 +38,7 @@ angular.module('Core.services', [])
                         callback(thumb);
                     });
                 },
-            }
+            };
         }
     ]).factory('DisqusService', ['Restangular',
         function DisqusService(Restangular) {
@@ -55,6 +55,6 @@ angular.module('Core.services', [])
                         callback(data.plain().response);
                     });
                 },
-            }
+            };
         }
     ]);

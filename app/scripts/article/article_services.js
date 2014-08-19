@@ -7,7 +7,7 @@
 * # ArticleServices
 * Services to interact with the bongo article api
 */
-angular.module('Article.services', [])    
+angular.module('Article.services', [])
     .factory('ArticleService', ['Restangular',
         function ArticleService(Restangular) {
             return {
