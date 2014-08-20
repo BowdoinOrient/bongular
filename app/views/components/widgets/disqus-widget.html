@@ -1,11 +1,4 @@
-<div class="disqus-widget">
-    <p class="widget-title">Recent Comments</p>
-    <div class="disqus-comment" ng-repeat="comment in disqusComments">
-        {{comment.message}}<br/>
-        {{comment.author.name}}<br/>
-        {{comment.isSpam || comment.isFlagged || comment.isDeleted}}<br/>
-        {{comment.createdAt}}<br/>
-        {{comment.id}}
-        {{comment}}
-    </div>
+<div class="dsq-widget">
+    <p class="dsq-widget-title">Recent Comments</p>
+    <div class="comment" ng-repeat="comment in disqusComments">{{comment}}</div><br/>
 </div>

@@ -44,15 +44,6 @@ angular.module('Core.services', [])
     ]).factory('DisqusService', ['Restangular',
         function DisqusService(Restangular) {
             return {
-                recentComments: function(callback){
-                    var restng = Restangular.withConfig(function(RestangularConfigurer) {
-                        RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/posts");
-                    });
-
-                    restng.one('list.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "limit":10}).then(function(data){
-                        callback(data.plain().response);
-                    });
-                },
                 commentCount: function(threadId, callback){
                     var restng = Restangular.withConfig(function(RestangularConfigurer) {
                         RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/posts");
@@ -67,17 +58,32 @@ angular.module('Core.services', [])
                     });
                 },
                 convertThreadIdToArticleId: function(threadId, callback){
+                    var restng = Restangular.withConfig(function(RestangularConfigurer) {
+                        RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/threads");
+                    });
 
+                    restng.one('details.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "thread":threadId}).then(function(data){
+                        callback(data.plain().response.link);
+                    });
                 },
                 convertArticleIdToThreadId: function(articleId, callback){
                     var restng = Restangular.withConfig(function(RestangularConfigurer) {
                         RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/threads");
                     });
 
-                    link = "http://bowdoinorient.com/article/"+articleId;
+                    var link = "http://bowdoinorient.com/article/"+articleId;
 
                     restng.one('details.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "link":link}).then(function(data){
                         callback(data.plain().response.id);
+                    });
+                },
+                recentComments: function(callback){
+                    var restng = Restangular.withConfig(function(RestangularConfigurer) {
+                        RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/posts");
+                    });
+
+                    restng.one('list.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "limit":8}).then(function(data){
+                        callback(data.plain().response);
                     });
                 }
             };

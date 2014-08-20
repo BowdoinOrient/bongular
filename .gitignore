@@ -8,3 +8,5 @@
 
 # huge binaries in this folder
 node_modules/protractor/selenium/*
+
+**/.cache/
