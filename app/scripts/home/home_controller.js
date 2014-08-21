@@ -20,5 +20,21 @@ angular.module('Home.controller', [
             $scope.sections = ["News", "Features", "Arts and Entertainment", "Opinion", "Sports"];
 
             $scope.goto = LocationService.goto;
+
+            $scope.commentDateFormat = function(str){
+                return moment().calendar(str);
+            };
+
+            $scope.titleclean = function(str){
+                if(str){
+                    return str.split("— The Bowdoin Orient").slice(0)[0];
+                }
+            };
+
+            $scope.linkclean = function(str){
+                if(str){
+                    return str.split(".com").slice(1)[0];
+                }
+            };
         }
     ]);

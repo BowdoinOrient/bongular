@@ -1,10 +1,8 @@
 <div class="dsq-widget">
     <p class="dsq-widget-title">Recent Comments</p>
-    <div class="comment" ng-repeat="comment in disqusComments track by $index" ng-click="goto({{comment.link}})">
-        <p>{{comment.author.name}}</p>
-        <p>{{comment.raw_message}}</p>
-        <p>{{comment.createdAt}}</p>
-        <p>{{comment.thread_data.link}}</p>
-        <p>{{comment.thread_data.clean_title}}</p>
+    <div class="comment" ng-repeat="comment in disqusComments track by $index">
+        <p class="name-date">{{comment.author.name}} — {{commentDateFormat(comment.createdAt)}}</p>
+        <p>{{comment.raw_message | limitTo:200}}<span ng-show="{{comment.raw_message.length >= 200}}">...</span></p>
+        <p class="articleLink" ng-click="goto(linkclean(comment.thread_data.link))">{{titleclean(comment.thread_data.title)}}</p>
     </div>
 </div>
