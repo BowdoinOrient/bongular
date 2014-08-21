@@ -63,7 +63,7 @@ angular.module('Core.services', [])
                     });
 
                     restng.one('details.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "thread":threadId}).then(function(data){
-                        callback(data.plain().response.link);
+                        callback(data.plain().response.link.split("/").slice(-1));
                     });
                 },
                 convertArticleIdToThreadId: function(articleId, callback){
