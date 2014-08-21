@@ -1,4 +1,9 @@
 <div class="dsq-widget">
     <p class="dsq-widget-title">Recent Comments</p>
-    <div class="comment" ng-repeat="comment in disqusComments">{{comment}}</div><br/>
+    <div class="comment" ng-repeat="comment in disqusComments track by $index" ng-click="goto({{comment.link}})">
+        <p>{{comment.author.name}}</p>
+        <p>{{comment.raw_message}}</p>
+        <p>{{comment.createdAt}}</p>
+        <p>{{comment.link}}</p>
+    </div>
 </div>
