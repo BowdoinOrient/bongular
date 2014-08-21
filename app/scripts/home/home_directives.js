@@ -40,9 +40,8 @@ angular.module('Home.directives', [
                     };
 
                     data.map(function(curr, index, array){
-                        DisqusService.convertThreadIdToArticleId(curr.thread, function(response){
-                            curr.articleid = response;
-                            curr.link = "http://bowdoinorient.com/article/"+curr.articleid;
+                        DisqusService.getThreadInfo(curr.thread, function(response){
+                            curr.thread_data = response;
                             array[index] = curr;
                         });
                         mapFinished(array);

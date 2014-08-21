@@ -63,6 +63,7 @@ angular.module('Core.services', [])
                     });
 
                     restng.one('details.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "thread":threadId}).then(function(data){
+                        console.log(data.plain().response);
                         callback(data.plain().response.link.split("/").slice(-1));
                     });
                 },
@@ -75,6 +76,15 @@ angular.module('Core.services', [])
 
                     restng.one('details.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "link":link}).then(function(data){
                         callback(data.plain().response.id);
+                    });
+                },
+                getThreadInfo: function(threadId, callback){
+                    var restng = Restangular.withConfig(function(RestangularConfigurer) {
+                        RestangularConfigurer.setBaseUrl("https://disqus.com/api/3.0/threads");
+                    });
+
+                    restng.one('details.json').get({"api_key":disqusPublicApiKey, "forum":"bowdoinorient", "thread":threadId}).then(function(data){
+                        callback(data.plain().response);
                     });
                 },
                 recentComments: function(callback){
