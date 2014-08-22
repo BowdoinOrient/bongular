@@ -17,8 +17,8 @@ angular.module('Issue.services', [])
                     });
                 },
                 getLatestIssue: function(callback){
-                    Restangular.one('issue/latest').get().then(function(data){
-                        callback(data.plain().body[0]);
+                    Restangular.one('issue').get({"ordering":"-issue_date","limit":1}).then(function(data){
+                        callback(data);
                     });
                 }
             };

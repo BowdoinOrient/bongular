@@ -15,6 +15,12 @@ angular.module('Article.services', [])
                     Restangular.one('post', params.articleid).get().then(function(data){
                         callback(data);
                     });
+                },
+                getArticlesInSection: function(section, limit, callback){
+                    // Get the `limit` most recent articles in `section`
+                    Restangular.one('section', section).all('posts').getList({"limit":limit,"ordering":"-published"}).then(function(data){
+                        callback(data.plain());
+                    });
                 }
             };
         }

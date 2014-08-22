@@ -9,10 +9,9 @@
 */
 angular.module('Home.controller', [
         'Home.directives',
-        'Article.services',
     ])
-    .controller('HomeCtrl', ['LocationService', 'IssueService', '$scope',
-        function (LocationService, IssueService, $scope) {
+    .controller('HomeCtrl', ['LocationService', 'IssueService', 'ArticleService', '$scope',
+        function (LocationService, IssueService, ArticleService, $scope) {
             IssueService.getLatestIssue(function(data){
                 $scope.thisIssue = data;
             });
@@ -36,5 +35,12 @@ angular.module('Home.controller', [
                     return str.split(".com").slice(1)[0];
                 }
             };
+
+            // Return a list of the ten "most popular" stories
+            (function(){
+                ArticleService.getArticlesInSection(3, 5, function(data){
+                    console.log(data);
+                });
+            })();
         }
     ]);
