@@ -16,7 +16,34 @@ angular.module('Home.controller', [
                 $scope.thisIssue = data;
             });
 
-            $scope.sections = ["News", "Features", "Arts and Entertainment", "Opinion", "Sports"];
+            // @TODO: Get these ids off the server
+            $scope.sections = [
+                {
+                    name: "News",
+                    id:1,
+                    posts: []
+                },
+                {
+                    name: "Features",
+                    id:2,
+                    posts: []
+                },
+                {
+                    name: "Arts and Entertainment",
+                    id:3,
+                    posts: []
+                },
+                {
+                    name: "Opinion",
+                    id:4,
+                    posts: []
+                },
+                {
+                    name: "Sports",
+                    id:5,
+                    posts: []
+                }
+            ];
 
             $scope.goto = LocationService.goto;
 
@@ -36,11 +63,10 @@ angular.module('Home.controller', [
                 }
             };
 
-            // Return a list of the ten "most popular" stories
-            (function(){
-                ArticleService.getArticlesInSection(3, 5, function(data){
-                    console.log(data);
-                });
-            })();
+                for(var i = 1; i <= $scope.sections.length; i++){
+                    ArticleService.getArticlesInSection(i, 5, function(data){
+                        $scope.sections[data[0].section.id-1].posts = data;
+                    });
+                }
         }
     ]);
