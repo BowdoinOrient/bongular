@@ -19,7 +19,7 @@ angular.module('Article.services', [])
                 getArticlesInSection: function(section, limit, callback){
                     // Get the `limit` most recent articles in `section`
                     Restangular.one('section', section).all('posts').getList({"limit":limit,"ordering":"-published"}).then(function(data){
-                        callback(data.plain()[0]);
+                        callback(data.plain());
                     });
                 },
                 getPopularArticles: function(callback){

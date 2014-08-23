@@ -65,7 +65,7 @@ angular.module('Home.controller', [
 
             var getSection = function(sectionId){
                 ArticleService.getArticlesInSection(sectionId, 5, function(data){
-                    $scope.sections[data.section.id-1].posts = data;
+                    $scope.sections[data[0].section.id-1].posts = data;
                 });
             };
 
