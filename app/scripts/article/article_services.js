@@ -8,8 +8,8 @@
 * Services to interact with the bongo article api
 */
 angular.module('Article.services', [])
-    .factory('ArticleService', ['Restangular',
-        function ArticleService(Restangular) {
+    .factory('ArticleService', ['Restangular', '$q',
+        function ArticleService(Restangular, $q) {
             return {
                 getArticle: function(params, callback){
                     Restangular.one('post', params.articleid).get().then(function(data){
@@ -27,28 +27,26 @@ angular.module('Article.services', [])
                     var fb = this.getFBStats,
                         tw = this.getTWStats;
 
-                    var rank = function(article){
-                        var rankcal = article.views_global - ((moment() - moment(article.published)) / Math.pow(10,9.5));
-
-                        var fbDone = false,
-                            twDone = false;
-
-                        fb(article.id, function(num){
-                            rank += num * 5;
-                            fbDone = true;
-                        });
-
-                        tw(article.id, function(num){
-                            rank += num * 7.5;
-                            twDone = true;
-                        });
-                    };
-
                     Restangular.all('post').get('',{"limit":50,"ordering":"-published"}).then(function(data){
                         data = data.plain().body;
 
-                        data = data.map(function(curr){
-                            curr.rank = rank(curr);
+                        data = data.map(function(article){
+                            var rank = article.views_global - ((moment() - moment(article.published)) / Math.pow(10,9.5));
+
+                            var fbDone = false,
+                                twDone = false;
+
+                            fb(article.id).then(function(num){
+                                console.log(num);
+                                rank += num * 5;
+                            });
+
+                            tw(article.id).then(function(num){
+                                console.log(num);
+                                rank += num * 7.5;
+                            });
+
+                            article.rank = rank;
                         });
 
                         data = data.sort(function(a, b){
@@ -58,7 +56,9 @@ angular.module('Article.services', [])
                     });
 
                 },
-                getFBStats: function(article, callback){
+                getFBStats: function(article){
+                    var deferred = $q.defer();
+
                     var restng = Restangular.withConfig(function(RestangularConfigurer) {
                         RestangularConfigurer.setBaseUrl("http://api.facebook.com");
                     });
@@ -66,10 +66,17 @@ angular.module('Article.services', [])
                     var url = "http://bowdoinorient.com/article/"+article;
 
                     restng.one('restserver.php').get({"method":"links.getStats", "format":"json", "urls":url}).then(function(data){
-                        callback(data.plain()[0].total_count);
+                        deferred.resolve(data.plain()[0].total_count);
+                    }).catch(function(error){
+                        deferred.reject(error);
+                        console.error(error);
                     });
+
+                    return deferred.promise;
                 },
-                getTWStats: function(article, callback){
+                getTWStats: function(article){
+                    var deferred = $q.defer();
+
                     // This API is undocumented and apt to break/be removed at any time
                     // See here: https://dev.twitter.com/discussions/5653
                     // Also you have to use jsonp which is fun
@@ -82,8 +89,13 @@ angular.module('Article.services', [])
                     var url = "http://bowdoinorient.com/article/"+article;
 
                     restng.one('count.json').get({"url":url}).then(function(data){
-                        callback(data.plain().count);
+                        deferred.resolve(data.plain().count);
+                    }).catch(function(error){
+                        deferred.reject(error);
+                        console.error(error);
                     });
+
+                    return deferred.promise;
                 }
             };
         }
