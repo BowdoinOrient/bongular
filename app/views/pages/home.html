@@ -1,6 +1,7 @@
 <ng-include src="'views/components/deck.html'"></ng-include>
 
 <div class="top-reads">
+    <p ng-repeat="article in popular track by $index">{{article.published}} -- {{article.views_global}}</p>
 </div>
 
 <div class="homepage-content">

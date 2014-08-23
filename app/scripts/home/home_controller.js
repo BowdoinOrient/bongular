@@ -63,10 +63,14 @@ angular.module('Home.controller', [
                 }
             };
 
-            for(var i = 1; i <= $scope.sections.length; i++){
-                ArticleService.getArticlesInSection(i, 5, function(data){
-                    $scope.sections[data[0].section.id-1].posts = data;
+            var getSection = function(sectionId){
+                ArticleService.getArticlesInSection(sectionId, 5, function(data){
+                    $scope.sections[data.section.id-1].posts = data;
                 });
+            };
+
+            for(var i = 1; i <= $scope.sections.length; i++){
+                getSection(i);
             }
 
             ArticleService.getPopularArticles(function(data){
