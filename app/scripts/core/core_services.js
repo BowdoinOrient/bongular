@@ -35,8 +35,8 @@ angular.module('Core.services', [])
                         RestangularConfigurer.setBaseUrl("http://api.scribd.com/");
                     });
 
-                    restng.one('api').get({"method":"thumbnail.get", "api_key":scribdPublicApiKey, "doc_id": scribdId}).then(function(thumb){
-                        callback(thumb);
+                    restng.one('api').get({"method":"thumbnail.get", "api_key":scribdPublicApiKey, "doc_id": scribdId, "format": "json"}).then(function(data){
+                        console.log(data);
                     });
                 },
             };
