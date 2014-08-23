@@ -27,32 +27,35 @@ angular.module('Article.services', [])
                     var fb = this.getFBStats,
                         tw = this.getTWStats;
 
-                    Restangular.all('post').get('',{"limit":50,"ordering":"-published"}).then(function(data){
-                        data = data.plain().body;
+                    var mapRank = function(data){
+                        var deferred = $q.defer();
 
                         data = data.map(function(article){
                             var rank = article.views_global - ((moment() - moment(article.published)) / Math.pow(10,9.5));
 
-                            var fbDone = false,
-                                twDone = false;
-
                             fb(article.id).then(function(num){
-                                console.log(num);
                                 rank += num * 5;
-                            });
-
-                            tw(article.id).then(function(num){
-                                console.log(num);
+                                tw(article.id);
+                            }).then(function(num){
                                 rank += num * 7.5;
+                                article.rank = rank;
+                                return article;
                             });
-
-                            article.rank = rank;
                         });
 
-                        data = data.sort(function(a, b){
-                            return a.rank - b.rank;
+                        deferred.resolve(data);
+
+                        return deferred.promise;
+                    }
+
+                    Restangular.all('post').get('',{"limit":50,"ordering":"-published"}).then(function(data){
+                        mapRank(data.plain().body).then(function(mappedResult){
+                            console.log(mappedResult);
+                            sortedResult = mappedResult.sort(function(a, b){
+                                return a.rank - b.rank;
+                            });
+                            callback(data);
                         });
-                        callback(data);
                     });
 
                 },
