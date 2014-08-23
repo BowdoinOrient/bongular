@@ -21,6 +21,7 @@ angular.module('Home.directives', [
                     var issueID = parseInt(attrs.issue, 10);
                     if(issueID > 0) {
                         ScribdService.lastCover(issueID, function(result){
+                            console.log(result);
                             scope.scribdImage = result;
                         });
                     }
