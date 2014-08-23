@@ -27,34 +27,27 @@ angular.module('Article.services', [])
                     var fb = this.getFBStats,
                         tw = this.getTWStats;
 
-                    var mapRank = function(data){
-                        var deferred = $q.defer();
-
+                    var mapRank = function(data, callback){
                         data = data.map(function(article){
-                            var rank = article.views_global - ((moment() - moment(article.published)) / Math.pow(10,9.5));
+                            article.rank = 0;//article.views_global - ((moment() - moment(article.published)) / Math.pow(10,7.5));
 
                             fb(article.id).then(function(num){
-                                rank += num * 5;
-                                tw(article.id);
-                            }).then(function(num){
-                                rank += num * 7.5;
-                                article.rank = rank;
-                                return article;
+                                article.rank += num * 5;
+                            });
+                            tw(article.id).then(function(num){
+                                article.rank += num * 5;
                             });
                         });
 
-                        deferred.resolve(data);
-
-                        return deferred.promise;
+                        callback(data);
                     }
 
                     Restangular.all('post').get('',{"limit":50,"ordering":"-published"}).then(function(data){
-                        mapRank(data.plain().body).then(function(mappedResult){
-                            console.log(mappedResult);
-                            sortedResult = mappedResult.sort(function(a, b){
-                                return a.rank - b.rank;
+                        mapRank(data.plain().body, function(mappedResult){
+                            var sortedResult = mappedResult.sort(function(a, b){
+                                return b.rank - a.rank;
                             });
-                            callback(data);
+                            callback(sortedResult);
                         });
                     });
 
