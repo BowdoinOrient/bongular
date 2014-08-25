@@ -29,18 +29,21 @@ angular.module('Article.services', [])
 
                     var mapRank = function(data, callback){
                         data = data.map(function(article){
-                            article.rank = 0;//article.views_global - ((moment() - moment(article.published)) / Math.pow(10,7.5));
+                            article.rank = article.views_global - ((moment() - moment(article.published)) / Math.pow(10,7.5));
 
-                            fb(article.id).then(function(num){
-                                article.rank += num * 5;
-                            });
-                            tw(article.id).then(function(num){
-                                article.rank += num * 5;
-                            });
+                            // @TODO: Implement social ranking
+                            // I is bad at javascript, ask Matt on Monday how do
+                            // fb(article.id).then(function(num){
+                            //     article.rank += num * 5;
+                            // });
+                            // tw(article.id).then(function(num){
+                            //     article.rank += num * 5;
+                            // });
+                            return article;
                         });
 
                         callback(data);
-                    }
+                    };
 
                     Restangular.all('post').get('',{"limit":50,"ordering":"-published"}).then(function(data){
                         mapRank(data.plain().body, function(mappedResult){
