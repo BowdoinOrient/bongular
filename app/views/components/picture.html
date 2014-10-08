@@ -2,16 +2,16 @@
     <!--[if IE 9]><video style="display: none;"><![endif]-->
 
     <!-- 768 < w < 1024 (iPad, desktop) -->
-    <source srcset="{{imgId}}_1024w.jpg, {{imgId}}_2048w.jpg 2x" media="(min-width: 768px)">
+    <source srcset="{{imgBase}}_1024w.jpg, {{imgBase}}_2048w.jpg 2x" media="(min-width: 768px)">
 
     <!-- 320 < w < 768 (phablet, landscape phone) -->
-    <source srcset="{{imgId}}_768w.jpg, {{imgId}}_1536w.jpg 2x" media="(min-width: 320px)">
+    <source srcset="{{imgBase}}_768w.jpg, {{imgBase}}_1536w.jpg 2x" media="(min-width: 320px)">
 
     <!-- w < 320 (phone, thumbnail) -->
-    <source srcset="{{imgId}}_320w.jpg, {{imgId}}_640w.jpg 2x" media="(min-width: 1px)">
+    <source srcset="{{imgBase}}_320w.jpg, {{imgBase}}_640w.jpg 2x" media="(min-width: 1px)">
 
     <!--[if IE 9]></video><![endif]-->
 
     <!-- Fallback -->
-    <img srcset="{{imgId}}.jpg">
+    <img src="{{imgBase}}.jpg">
 </picture>

@@ -34,16 +34,17 @@ angular.module('Core.directives', [])
             });
         };
     })
-    .directive("ng-pic", function() {
+    .directive("pic", function() {
         return {
-            restrict: 'A',
+            restrict: 'E',
             replace: true,
             templateUrl: 'views/components/picture.html',
             scope: {
-                imgId: '=data-id'
+                imgId: '='
             },
-            link: function(){
+            link: function($scope, element, attrs){
+                $scope.imgBase = "https://s3.amazonaws.com/bongo-static/photos/" + $scope.imgId;
             }
-        }
+        };
     });
 
