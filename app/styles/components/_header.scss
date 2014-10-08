@@ -11,7 +11,7 @@ header {
         h1 {
             display:none;
         }
-        
+
         .logo {
             width: 100%;
             @extend %noselect;
@@ -55,7 +55,7 @@ header {
                 &.opinion {border-top: 4px solid $opinion}
 
                 &:not(:last-child) {
-                    margin-right:15px;
+                    margin-right:14px;
                 }
 
                 &:hover {

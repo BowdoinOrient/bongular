@@ -33,5 +33,17 @@ angular.module('Core.directives', [])
                 });
             });
         };
+    })
+    .directive("ng-pic", function() {
+        return {
+            restrict: 'A',
+            replace: true,
+            templateUrl: 'views/components/picture.html',
+            scope: {
+                imgId: '=data-id'
+            },
+            link: function(){
+            }
+        }
     });
 
