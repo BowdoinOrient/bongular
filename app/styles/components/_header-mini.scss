@@ -24,7 +24,7 @@ header {
         display:inline-block;
         position:absolute;
         top:13px;
-        right:20px; 
+        right:20px;
         height:40px;
         cursor:pointer;
         padding:5px;
@@ -63,7 +63,7 @@ header {
                     &:after{
                         @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");
                         background-color:$lightgray;
-                        top:-3px;   
+                        top:-3px;
                     }
                 }
             }

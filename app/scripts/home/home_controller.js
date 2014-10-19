@@ -74,7 +74,7 @@ angular.module('Home.controller', [
             }
 
             ArticleService.getPopularArticles(function(data){
-                $scope.popular = data.slice(10);
+                $scope.popular = data.slice(0,10);
             });
         }
     ]);
