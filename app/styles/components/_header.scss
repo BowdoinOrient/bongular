@@ -11,7 +11,7 @@ header {
         h1 {
             display:none;
         }
-        
+
         .logo {
             width: 100%;
             @extend %noselect;
@@ -24,7 +24,7 @@ header {
 
         .sections {
             height:60px;
-            max-width:640px;
+            max-width:645px;
             margin:0 auto;
             position:relative;
 
@@ -74,7 +74,7 @@ header {
     }
 }
 
-@media (max-width:640px) {
+@media (max-width:645px) {
     @import 'header-mini';
 }
 

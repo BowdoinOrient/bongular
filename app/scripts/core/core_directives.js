@@ -2,7 +2,7 @@ angular.module('Core.directives', [])
     .directive("scrollmin", function ($window) {
         return function(scope, element, attrs) {
             var checkWidth = function(){
-                if (this.innerWidth <= 640) {
+                if (this.innerWidth <= 645) {
                     scope.minByWidth = true;
                 } else {
                     scope.minByWidth = false;
