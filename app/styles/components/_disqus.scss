@@ -7,19 +7,19 @@
 
     .dsq-widget-title {
         font-family:"MinionPro";
-        font-size:14pt;
+        font-size:1.4em;
         text-transform: uppercase;
         padding-bottom:5px;
         border-bottom: 2px solid $lightergray;
 
         &:first-letter {
-            font-size:135%;
+            font-size:1.45em;
         }
     }
 
     .disqus-comment {
         font-family:"MyriadPro";
-        font-weight:12pt;
+        font-weight:1.2em;
 
         word-break:break-all;
         word-wrap:normal;
