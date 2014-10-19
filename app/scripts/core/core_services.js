@@ -97,4 +97,14 @@ angular.module('Core.services', [])
                 }
             };
         }
+    ]).factory('SectionService', ['Restangular',
+        function SectionService(Restangular) {
+            return {
+                getSections: function(callback){
+                    Restangular.one('section').get().then(function(data){
+                        callback(data);
+                    });
+                }
+            };
+        }
     ]);

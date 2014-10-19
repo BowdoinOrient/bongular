@@ -13,12 +13,18 @@
         .top-badge {
             width:25px;
             height:25px;
-            background-color: black;
+            background-color: white;
             border-radius: 50%;
             display:block;
             position:absolute;
             top:50%;
             transform: translate(0, -50%);
+
+            &.news      {border: 2px solid $news}
+            &.features  {border: 2px solid $features}
+            &.artsent   {border: 2px solid $artsent}
+            &.sports    {border: 2px solid $sports}
+            &.opinion   {border: 2px solid $opinion}
         }
 
         .top-title {
