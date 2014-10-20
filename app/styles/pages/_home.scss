@@ -8,6 +8,7 @@
     background-color:$lightergray;
 
     .top-article {
+        cursor:pointer;
         position:relative;
 
         .top-badge {
@@ -20,11 +21,44 @@
             top:50%;
             transform: translate(0, -50%);
 
-            &.news      {border: 2px solid $news}
-            &.features  {border: 2px solid $features}
-            &.artsent   {border: 2px solid $artsent}
-            &.sports    {border: 2px solid $sports}
-            &.opinion   {border: 2px solid $opinion}
+            &.news      {border: 2px solid $news; color:$news}
+            &.features  {border: 2px solid $features; color:$features}
+            &.artsent   {border: 2px solid $artsent; color:$artsent}
+            &.sports    {border: 2px solid $sports; color:$sports}
+            &.opinion   {border: 2px solid $opinion; color:$opinion}
+
+            @include vendor-prefix("transition", "border-width 0.15s, color 0.15s");
+
+            .index {
+                position:absolute;
+                top:-2px;
+                left:-2px;
+                width:100%;
+                font-size:1.1em;
+                line-height:1.5em;
+                text-align:center;
+                width:25px;
+                height:25px;
+                font-family: "MyriadPro";
+                font-style:bold;
+                font-weight:500;
+
+                @include vendor-prefix("transition", "top 0.15s, left 0.15s");
+            }
+        }
+
+        &:hover {
+            .top-badge {
+                border-width:13px;
+                color:white;
+                .index {
+                    top:-13px;
+                    left:-13px;
+                }
+            }
+            .top-title {
+                text-decoration: underline;
+            }
         }
 
         .top-title {

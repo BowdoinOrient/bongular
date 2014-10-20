@@ -2,7 +2,9 @@
 
 <div class="top-reads">
     <div class="top-article" ng-repeat="article in popular track by $index">
-        <div class="top-badge {{article.section.section | lowercase}}"></div>
+        <div class="top-badge {{article.section.classname}}">
+            <span class="index">{{$index + 1}}</span>
+        </div>
         <h3 class="top-title">{{article.title}}</h3>
     </div>
 </div>

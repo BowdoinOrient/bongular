@@ -36,6 +36,7 @@ angular.module('Home.controller', [
 
             ArticleService.getPopularArticles(function(data){
                 $scope.popular = data.slice(0,10);
+                console.log($scope.popular[1].section);
             });
 
             var getSection = function(sectionId){
@@ -46,8 +47,6 @@ angular.module('Home.controller', [
 
             SectionService.getSections(function(data){
                 $scope.sections = data.body;
-
-                console.log($scope.sections);
 
                 for(var i = 1; i <= $scope.sections.length; i++){
                     getSection(i);
