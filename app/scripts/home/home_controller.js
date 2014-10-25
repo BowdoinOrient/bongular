@@ -36,7 +36,7 @@ angular.module('Home.controller', [
 
             ArticleService.getPopularArticles().then(
                 function(data){
-                    $scope.popular = data.body.slice(0,10);
+                    $scope.popular = data;
                 },
                 function(error){
                     console.error(error);
