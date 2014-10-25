@@ -34,10 +34,14 @@ angular.module('Home.controller', [
                 }
             };
 
-            ArticleService.getPopularArticles(function(data){
-                $scope.popular = data.slice(0,10);
-                console.log($scope.popular[1].section);
-            });
+            ArticleService.getPopularArticles().then(
+                function(data){
+                    $scope.popular = data.body.slice(0,10);
+                },
+                function(error){
+                    console.error(error);
+                }
+            );
 
             var getSection = function(sectionId){
                 ArticleService.getArticlesInSection(sectionId, 5, function(data){

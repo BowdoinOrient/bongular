@@ -22,38 +22,39 @@ angular.module('Article.services', [])
                         callback(data.plain());
                     });
                 },
-                getPopularArticles: function(callback){
-                    // Return an article's "popularity": Views weighted with social interactions and staleness
-                    var fb = this.getFBStats,
-                        tw = this.getTWStats;
+                getPopularArticles: function(){
+                    var deferred = $q.defer();
 
-                    var mapRank = function(data, callback){
+                    var mapRank = function(data){
+                        var mapDeferred = $q.defer();
+
                         data = data.map(function(article){
                             article.rank = article.views_global - ((moment() - moment(article.published)) / Math.pow(10,7.5));
-
-                            // @TODO: Implement social ranking
-                            // I is bad at javascript, ask Matt on Monday how do
-                            // fb(article.id).then(function(num){
-                            //     article.rank += num * 5;
-                            // });
-                            // tw(article.id).then(function(num){
-                            //     article.rank += num * 5;
-                            // });
                             return article;
                         });
 
-                        callback(data);
+                        mapDeferred.resolve(data);
+
+                        return mapDeferred.promise;
                     };
 
                     Restangular.all('post').get('',{"limit":50,"ordering":"-published"}).then(function(data){
-                        mapRank(data.plain().body, function(mappedResult){
-                            var sortedResult = mappedResult.sort(function(a, b){
-                                return b.rank - a.rank;
-                            });
-                            callback(sortedResult);
-                        });
+                        mapRank(data.plain().body).then(
+                            function(mappedResult){
+                                var sortedResult = mappedResult.sort(function(a, b){
+                                    return b.rank - a.rank;
+                                });
+                            },
+                            function(error){
+                                console.error(error);
+                            }
+                        );
+
+                        deferred.resolve(data.plain());
                     });
 
+
+                    return deferred.promise;
                 },
                 getFBStats: function(article){
                     var deferred = $q.defer();
