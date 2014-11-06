@@ -70,7 +70,7 @@ angular.module('Article.services', [])
 
                     Restangular.all('post').get('',{"limit":10,"ordering":"-published,social"}).then(
                         function(data){
-                            deferred.resolve(data);
+                            deferred.resolve(data.body);
                         },
                         function(error){
                             deferred.reject(error);
