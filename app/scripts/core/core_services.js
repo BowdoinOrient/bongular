@@ -8,7 +8,6 @@
 * Services to be used generally cross-app
 */
 
-var disqusPublicApiKey = "8BIlGuOMH5jo4jTDI7qKZTvKitxQUesD7cKt3643FfqMfyDKWbsiCU9dnFEgmnDb";
 var scribdPublicApiKey = "34m5pzwzt3fqi0fod70cc";
 
 angular.module('Core.services', [])
